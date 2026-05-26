@@ -1,4 +1,4 @@
-# REGAIN-mining-recovery
+# ecoind_mining_restoration
 
 Companion demonstration code and sample data for the REGAIN recovery indicator,
 released alongside the manuscript
