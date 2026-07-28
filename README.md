@@ -1,76 +1,122 @@
-# ecoind_mining_restoration
+# Ecological recovery across ionic rare earth mining landscapes
 
-Companion demonstration code and sample data for the REGAIN recovery indicator,
-released alongside the manuscript
+This repository accompanies the manuscript:
 
-> Spatially heterogeneous recovery realization in rare-earth mining landscapes
-> (under review)
+> **Ecological recovery heterogeneity and its driving mechanisms across ionic rare earth mining landscapes revealed by interpretable machine learning using remote sensing time series from 2000 to 2025**
 
-REGAIN (REcovery GAp INdex) compares the initial and current ecological deficits
-between observed and environmentally potential reference conditions through a
-sum-normalised difference, with values bounded in [-1, +1] by definition and no
-imposed clipping.
+It provides a privacy screened implementation of the main analytical sequence,
+deidentified example data, and aggregate result tables. The release follows the
+current *Ecological Informatics* manuscript.
 
-## What this repository contains
+## Analytical sequence
 
-This repository provides a small, self-contained reference implementation so
-that other groups can reproduce the indicator construction, the spatial
-machine-learning attribution, and the basic mapping workflow on their own data.
-It does not contain the full source datasets, the GEE-side preprocessing
-pipeline, or the manuscript text or figures.
+1. Annual Landsat observations are summarized as kNDVI, NBR, NDMI, and BSI.
+2. The four components are scaled with one fixed 2000-2025 contract and averaged
+   to form the ecological condition index (ECI).
+3. Annual ECI at each location is scaled within the range observed at that
+   location:
 
-```
-demo_data/
-  sample_regain_demo.csv   synthetic 500-cell tabular sample (random seed fixed)
+   `REGAIN_it = (ECI_it - min_t ECI_it) / (max_t ECI_it - min_t ECI_it)`
 
-demo_code/
-  01_demo_load_data.py     load the sample CSV and print a head summary
-  02_demo_compute_regain.py compute REGAIN from synthetic initial / current ECI
-  03_demo_train_rf.py      train a Random Forest regressor on synthetic predictors
-  04_demo_shap_summary.py  produce a global SHAP bar and dependence plot
-  05_demo_visualize_map.py scatter the synthetic cells over a square extent
+4. The Theil-Sen slope of annual REGAIN is the single response used in the
+   machine learning and pathway analyses.
+5. Fifty nine contextual candidates from climate, hydrology, terrain, land
+   cover, and human activity are screened without using the response. Fifty
+   seven predictors are retained.
+6. XGBoost is evaluated with shuffled random fivefold cross validation. Exact
+   tree SHAP contributions are calculated only for observations omitted from
+   each training fold.
+7. Path modeling and empirical quantile boundaries provide complementary
+   summaries of relationships among driver groups and nonlinear response
+   limits.
+
+REGAIN describes the annual position of a location within its observed
+2000-2025 ECI range. It does not represent a reconstructed condition before
+mining, an ecological optimum, or a pollution indicator.
+
+## Repository contents
+
+```text
+analysis/
+  01_extract_landsat_components_gee.py
+  02_construct_eci_regain.py
+  03_fit_xgboost_shap.py
+  04_empirical_quantile_boundaries.py
+
+data/
+  annual_spectral_sample.csv
+  model_matrix_sample.csv.gz
+  eci_scaling_contract.csv
+  predictor_ledger.csv
+  release_metadata.json
+  results/
+    annual_eci_regain_summary.csv
+    model_validation_summary.csv
+    xgboost_shap_feature_importance.csv
+    xgboost_shap_family_importance.csv
+    pls_sem_path_inference.csv
+    dual_constraint_summary.csv
 
 figures/
-  Fig01_study_design.png ... Fig14_restoration_priority_synthesis.png
-  Rendered PNG copies of the 14 manuscript figures, provided for quick visual
-  reference. See the manuscript captions for full panel descriptions.
+  Fig01_study_area.png ... Fig13_recovery_management_contexts.png
+
+tests/
+  verify_release.py
 ```
+
+The sample tables retain observed numerical values but replace internal cell
+identifiers and remove coordinates, administrative labels, spatial block
+identifiers, asset paths, and registered site locations. They are intended to
+exercise the released code and document the data schema. Aggregate result
+tables report the full analysis summarized in the manuscript.
+
+Project specific Earth Engine identifiers are intentionally absent. The
+Landsat extraction template reads the Earth Engine project and analysis grid
+asset from environment variables supplied by the user. Figure rendering code
+is outside the scope of this release; the `figures` directory contains only
+the current static manuscript figures.
 
 ## Quick start
 
+Create the environment:
+
 ```bash
 conda env create -f environment.yml
-conda activate regain-demo
-python demo_code/01_demo_load_data.py
-python demo_code/02_demo_compute_regain.py
-python demo_code/03_demo_train_rf.py
-python demo_code/04_demo_shap_summary.py
-python demo_code/05_demo_visualize_map.py
+conda activate regain-reproducibility
 ```
 
-Each script is independent and runs on the bundled synthetic CSV in about 5
-seconds on a laptop. No GPU or remote service is required.
+Run the local workflow:
 
-## Source datasets used in the manuscript
+```bash
+python analysis/02_construct_eci_regain.py
+python analysis/03_fit_xgboost_shap.py
+python analysis/04_empirical_quantile_boundaries.py --bootstrap 100
+python tests/verify_release.py
+```
 
-The manuscript itself draws on publicly available remote-sensing products:
+The model and boundary scripts use the deidentified sample, so their numerical
+results are demonstration results rather than replacements for the full sample
+statistics in `data/results/`.
 
-- Landsat Collection 2 surface reflectance (USGS, via Google Earth Engine)
-- CLCD annual land cover (Yang and Huang 2021)
-- ERA5-Land monthly climate aggregates (Munoz Sabater 2021)
-- VIIRS night-time lights (Elvidge et al. 2017)
-- SRTM 30 m elevation
-- Registered mining-right point inventory (Ganzhou Natural Resource Bureau,
-  available under the original access conditions of the data provider)
+The Earth Engine template is optional:
 
-This repository does not redistribute these sources; consult each provider for
-licence terms and access.
+```bash
+set EE_PROJECT=your-earth-engine-project
+set ROI_GRID_ASSET=projects/your-project/assets/your-grid
+python analysis/01_extract_landsat_components_gee.py
+```
 
-## Licence
+The script only starts an export when `--start-export` is supplied.
 
-Released under the MIT Licence (see LICENSE).
+## Source data
 
-## Citation
+The manuscript draws on provider hosted products, including Landsat Collection
+2 surface reflectance, ERA5-Land, TerraClimate, CLCD, VIIRS nighttime lights,
+GHS-POP, GRIP roads, SRTM, and MERIT Hydro. Access and licensing remain with
+the respective providers. The official mineral site inventory is not
+redistributed.
 
-If you use this code or the REGAIN indicator in your own work, please cite the
-manuscript once published.
+## License
+
+The code is released under the MIT License. The bundled sample and aggregate
+tables are provided for scholarly reproduction of the reported workflow.

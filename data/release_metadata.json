@@ -1,0 +1,33 @@
+{
+  "release_date": "2026-07-28",
+  "study_period": "2000-2025",
+  "analysis_grid_m": 500,
+  "full_annual_cells": 38281,
+  "full_model_cells": 38273,
+  "candidate_predictors": 59,
+  "retained_predictors": 57,
+  "sampling_seed": 42,
+  "model_sample_rows": 2500,
+  "annual_sample_cells": 120,
+  "annual_sample_rows": 3120,
+  "sample_values": "observed processed values",
+  "coordinates_removed": true,
+  "internal_identifiers_removed": true,
+  "administrative_labels_removed": true,
+  "official_mineral_site_inventory_redistributed": false,
+  "project_identifiers_included": false,
+  "asset_identifiers_included": false,
+  "checksums_sha256": {
+    "data/annual_spectral_sample.csv": "0e412ed255875f544b1f34157d00b9dcfb4a2fbe18f732ba121d80a529076ef9",
+    "data/model_matrix_sample.csv.gz": "b10cd97ac16c9d714cd4ead6576488983fbad798439d3784f5c4e8ff4f1f562c",
+    "data/eci_scaling_contract.csv": "c2ae96c0f74e515bae1bfb60a2e8d8c5aac30ae5d2577cd9df052b9a7706c385",
+    "data/predictor_ledger.csv": "e2ec465194a61a63b1898ea1d135a803cfb80d9c8a2a6f177bc8bfde31015753",
+    "data/results/annual_eci_regain_summary.csv": "86ddaf772bc328ef9a1ad8e0069328739aa8b623e61d7b9c21af6c545250c671",
+    "data/results/model_validation_summary.csv": "0384aca8d8fe9d04297486dfa197f39d694f9e7b5bed2833a03134330368ffdd",
+    "data/results/xgboost_shap_feature_importance.csv": "90c8ec8b9c352ed501a39fdfc174ca64f572c548c15bd48df0ee9b5691aae07c",
+    "data/results/xgboost_shap_family_importance.csv": "b977b0af943317af510c7f24d8196900853695ff986ce1ce92877d2fb472303a",
+    "data/results/pls_sem_path_inference.csv": "35860873a18671662ec90422cfb7a9be79f25dedfca1d587cc6e3f24da90266d",
+    "data/results/dual_constraint_summary.csv": "b7a33d0c94084613ba2a96df93734f91894e603e73c13035bfe76f88fc9a787e",
+    "data/results/predictor_family_summary.csv": "b3811a95732e77f75401170eab6f7befa6c7cd8c8f922eb4078ed4b1073ac9c2"
+  }
+}
