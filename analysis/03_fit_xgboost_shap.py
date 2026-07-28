@@ -3,6 +3,7 @@
 from __future__ import annotations
 
 import argparse
+import warnings
 from pathlib import Path
 
 import numpy as np
@@ -20,6 +21,7 @@ DEFAULT_LEDGER = ROOT / "data" / "predictor_ledger.csv"
 DEFAULT_OUTPUT = ROOT / "outputs" / "xgboost_shap"
 TARGET = "regain_sen_slope_2000_2025"
 SEED = 42
+LOCKED_XGBOOST_VERSION = "2.1.4"
 
 XGB_PARAMETERS = {
     "n_estimators": 850,
@@ -70,6 +72,13 @@ def parse_args() -> argparse.Namespace:
 
 def main() -> None:
     args = parse_args()
+    if xgb.__version__ != LOCKED_XGBOOST_VERSION:
+        warnings.warn(
+            "The manuscript analysis used XGBoost "
+            f"{LOCKED_XGBOOST_VERSION}; detected {xgb.__version__}. "
+            "Small numerical differences may occur.",
+            stacklevel=2,
+        )
     frame = pd.read_csv(args.data)
     ledger = pd.read_csv(args.ledger)
     features = retained_predictors(ledger)
@@ -126,6 +135,8 @@ def main() -> None:
                 "n": len(frame),
                 "n_predictors": len(features),
                 "folds": args.folds,
+                "xgboost_version": xgb.__version__,
+                "random_seed": SEED,
                 "r2_pooled_oof": r2_score(y, predictions),
                 "rmse_pooled_oof": mean_squared_error(y, predictions) ** 0.5,
                 "mae_pooled_oof": mean_absolute_error(y, predictions),

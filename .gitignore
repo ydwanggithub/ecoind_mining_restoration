@@ -6,6 +6,7 @@ __pycache__/
 
 # Virtual environments
 .venv/
+.venv*/
 env/
 venv/
 
@@ -22,7 +23,7 @@ Thumbs.db
 *.tiff
 *.eps
 
-# Local data caches (only the small sample CSV is tracked)
+# Local geospatial caches and intermediate analysis products
 *.parquet
 *.feather
 *.geojson

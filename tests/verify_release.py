@@ -2,6 +2,7 @@
 
 from __future__ import annotations
 
+import hashlib
 import json
 import re
 import subprocess
@@ -47,29 +48,74 @@ def fail(message: str) -> None:
     raise AssertionError(message)
 
 
+def sha256(path: Path) -> str:
+    digest = hashlib.sha256()
+    with path.open("rb") as handle:
+        for chunk in iter(lambda: handle.read(1024 * 1024), b""):
+            digest.update(chunk)
+    return digest.hexdigest()
+
+
 def check_data() -> None:
     annual = pd.read_csv(ROOT / "data" / "annual_spectral_sample.csv")
+    full_model = pd.read_csv(
+        ROOT / "data" / "model_matrix_full_deidentified.csv.gz"
+    )
     model = pd.read_csv(ROOT / "data" / "model_matrix_sample.csv.gz")
+    preview = pd.read_csv(ROOT / "data" / "model_matrix_preview.csv")
     ledger = pd.read_csv(ROOT / "data" / "predictor_ledger.csv")
-    if FORBIDDEN_COLUMNS.intersection(annual.columns):
-        fail(
-            "Annual sample contains private columns: "
-            f"{FORBIDDEN_COLUMNS.intersection(annual.columns)}"
-        )
-    if FORBIDDEN_COLUMNS.intersection(model.columns):
-        fail(
-            "Model sample contains private columns: "
-            f"{FORBIDDEN_COLUMNS.intersection(model.columns)}"
-        )
+    for label, frame in {
+        "Annual sample": annual,
+        "Full model matrix": full_model,
+        "Model sample": model,
+        "Model preview": preview,
+    }.items():
+        forbidden = FORBIDDEN_COLUMNS.intersection(frame.columns)
+        if forbidden:
+            fail(f"{label} contains private columns: {forbidden}")
     if annual["sample_id"].nunique() != 120 or len(annual) != 120 * 26:
         fail("Annual sample must contain 120 cells and 26 years per cell.")
+    if len(full_model) != 38273:
+        fail("Full model matrix must contain 38273 deidentified cells.")
     if len(model) != 2500:
         fail("Model sample must contain 2500 deidentified cells.")
+    if len(preview) != 50:
+        fail("Model preview must contain 50 deidentified cells.")
+    if full_model["sample_id"].duplicated().any():
+        fail("Full model matrix contains duplicate anonymous identifiers.")
+    if full_model.isna().any().any():
+        fail("Full model matrix contains missing values.")
+    for label, frame in {
+        "Annual sample": annual,
+        "Full model matrix": full_model,
+        "Model sample": model,
+        "Model preview": preview,
+    }.items():
+        if not frame["sample_id"].str.fullmatch(r"cell_\d{5}").all():
+            fail(f"{label} contains an invalid anonymous identifier.")
+    if not set(model["sample_id"]).issubset(set(full_model["sample_id"])):
+        fail("Model sample is not a subset of the full model matrix.")
+    if not set(annual["sample_id"]).issubset(set(model["sample_id"])):
+        fail("Annual spectral sample is not linked to the model sample.")
+    if not preview.equals(model.head(50)):
+        fail("Browser preview does not match the first 50 model sample rows.")
     retained = ledger["retained"].astype(str).str.lower().eq("true")
     if len(ledger) != 59 or retained.sum() != 57:
         fail(
             "Predictor ledger must contain 59 candidates and 57 retained predictors."
         )
+    expected_columns = {
+        "sample_id",
+        "regain_sen_slope_2000_2025",
+        *ledger["name"].tolist(),
+    }
+    for label, frame in {
+        "Full model matrix": full_model,
+        "Model sample": model,
+        "Model preview": preview,
+    }.items():
+        if set(frame.columns) != expected_columns:
+            fail(f"{label} does not match the released predictor ledger.")
     metadata = json.loads(
         (ROOT / "data" / "release_metadata.json").read_text(encoding="utf-8")
     )
@@ -78,6 +124,16 @@ def check_data() -> None:
         or metadata["internal_identifiers_removed"] is not True
     ):
         fail("Release metadata does not assert the deidentification boundary.")
+    if metadata["full_model_matrix_rows"] != 38273:
+        fail("Release metadata reports an incorrect full model row count.")
+    if metadata["xgboost_version"] != "2.1.4":
+        fail("Release metadata does not record the locked XGBoost version.")
+    for relative_path, expected_hash in metadata["checksums_sha256"].items():
+        path = ROOT / relative_path
+        if not path.is_file():
+            fail(f"Release checksum target is missing: {relative_path}")
+        if sha256(path) != expected_hash:
+            fail(f"Release checksum mismatch: {relative_path}")
 
 
 def check_private_strings() -> None:
@@ -86,6 +142,7 @@ def check_private_strings() -> None:
         if (
             not path.is_file()
             or ".git" in path.parts
+            or any(part.startswith(".venv") for part in path.parts)
             or path.resolve() == Path(__file__).resolve()
             or path.suffix.lower() not in extensions
         ):

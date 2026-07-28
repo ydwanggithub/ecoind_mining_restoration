@@ -5,8 +5,9 @@ This repository accompanies the manuscript:
 > **Ecological recovery heterogeneity and its driving mechanisms across ionic rare earth mining landscapes revealed by interpretable machine learning using remote sensing time series from 2000 to 2025**
 
 It provides a privacy screened implementation of the main analytical sequence,
-deidentified example data, and aggregate result tables. The release follows the
-current *Ecological Informatics* manuscript.
+the complete deidentified model matrix, a smaller working example, and
+aggregate result tables. The release follows the current *Ecological
+Informatics* manuscript.
 
 ## Analytical sequence
 
@@ -45,7 +46,9 @@ analysis/
 
 data/
   annual_spectral_sample.csv
+  model_matrix_full_deidentified.csv.gz
   model_matrix_sample.csv.gz
+  model_matrix_preview.csv
   eci_scaling_contract.csv
   predictor_ledger.csv
   release_metadata.json
@@ -64,11 +67,19 @@ tests/
   verify_release.py
 ```
 
-The sample tables retain observed numerical values but replace internal cell
-identifiers and remove coordinates, administrative labels, spatial block
-identifiers, asset paths, and registered site locations. They are intended to
-exercise the released code and document the data schema. Aggregate result
-tables report the full analysis summarized in the manuscript.
+`model_matrix_full_deidentified.csv.gz` contains all 38,273 observations used
+in the model analysis. It includes the REGAIN trend response and the 59
+candidate predictors recorded in `predictor_ledger.csv`. Internal cell
+identifiers, coordinates, administrative labels, spatial block identifiers,
+asset paths, and registered site locations have been removed. Anonymous
+`sample_id` values preserve one to one row identity without disclosing
+location.
+
+`model_matrix_sample.csv.gz` contains 2,500 rows for a quicker trial run.
+`model_matrix_preview.csv` contains 50 of those rows in an uncompressed form
+that can be viewed directly on GitHub. The annual spectral sample supports a
+small reconstruction of ECI and annual REGAIN. Aggregate result tables report
+the full analysis summarized in the manuscript.
 
 Project specific Earth Engine identifiers are intentionally absent. The
 Landsat extraction template reads the Earth Engine project and analysis grid
@@ -94,9 +105,21 @@ python analysis/04_empirical_quantile_boundaries.py --bootstrap 100
 python tests/verify_release.py
 ```
 
-The model and boundary scripts use the deidentified sample, so their numerical
-results are demonstration results rather than replacements for the full sample
-statistics in `data/results/`.
+The default model and boundary commands use the 2,500 row example. To rerun
+the XGBoost and SHAP analysis with the complete deidentified matrix, use:
+
+```bash
+python analysis/03_fit_xgboost_shap.py \
+  --data data/model_matrix_full_deidentified.csv.gz \
+  --output-dir outputs/xgboost_shap_full
+```
+
+The full matrix retains the row order used in the manuscript analysis. With
+the fixed random seed, shuffled fivefold partition, and XGBoost 2.1.4 pinned
+in `environment.yml`, the command reproduces the reported pooled validation
+statistics (`R2 = 0.710556`, `RMSE = 0.006693`, and `MAE = 0.005139`) and SHAP
+importance values. The smaller example is intended for code inspection and a
+faster trial run.
 
 The Earth Engine template is optional:
 
@@ -118,5 +141,6 @@ redistributed.
 
 ## License
 
-The code is released under the MIT License. The bundled sample and aggregate
-tables are provided for scholarly reproduction of the reported workflow.
+The code is released under the MIT License. The deidentified model matrix,
+working samples, and aggregate tables are provided for scholarly reproduction
+of the reported workflow.
