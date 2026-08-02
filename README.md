@@ -2,12 +2,17 @@
 
 This repository accompanies the manuscript:
 
-> **Ecological recovery heterogeneity and its driving mechanisms across ionic rare earth mining landscapes revealed by interpretable machine learning using remote sensing time series from 2000 to 2025**
+> **Spatial heterogeneity and driving mechanisms of ecological recovery across the ionic rare earth mining landscapes of Ganzhou in southern China from 2000 to 2025**
 
-It provides a privacy screened implementation of the main analytical sequence,
-the complete deidentified model matrix, a smaller working example, and
-aggregate result tables. The release follows the current *Ecological
-Informatics* manuscript.
+The study follows ecological recovery around 401 officially registered ionic
+rare earth mineral sites in Ganzhou, southern China, using annual remote
+sensing records from 2000 to 2025. It examines spatial differences in long
+term recovery direction with XGBoost-SHAP and PLS-SEM.
+
+The repository provides a privacy screened implementation of the main
+analytical sequence, the complete deidentified model matrix, a smaller working
+example, and aggregate result tables. The release corresponds to the current
+*Ecological Indicators* manuscript.
 
 ## Analytical sequence
 
