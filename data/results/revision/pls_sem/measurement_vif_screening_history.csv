@@ -1,0 +1,8 @@
+construct,step,n_variables,largest_vif_variable,largest_vif,action
+Terrain,0,4,elevation_mean,2.1487873071508936,retain all
+Climate,0,5,vpd_kpa_slope_2000_2025,3.233455578288072,retain all
+Hydrology,0,6,soil_water_rootzone_slope_2000_2025,1.3269860725592473,retain all
+LandCover,0,6,cropland_frac_slope_2000_2025,18.6583113702344,remove
+LandCover,1,5,forest_frac_mean_2000_2025,13.920871529813732,remove
+LandCover,2,4,built_frac_slope_2000_2025,1.0786745876369794,retain all
+Human,0,6,mining_disturbance_intensity_2000_2025,1.11694484316424,retain all

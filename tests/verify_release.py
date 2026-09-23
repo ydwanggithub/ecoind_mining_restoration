@@ -136,6 +136,44 @@ def check_data() -> None:
             fail(f"Release checksum mismatch: {relative_path}")
 
 
+def check_revision_files() -> None:
+    full_model = pd.read_csv(
+        ROOT / "data" / "model_matrix_full_deidentified.csv.gz",
+        usecols=["sample_id", "regain_sen_slope_2000_2025"],
+    )
+    folds = pd.read_csv(ROOT / "data" / "cv_fold_assignments.csv.gz")
+    oof = pd.read_csv(
+        ROOT / "data" / "results" / "oof_predictions_deidentified.csv.gz"
+    )
+    for label, frame in {"Fold assignments": folds, "Out-of-fold predictions": oof}.items():
+        forbidden = FORBIDDEN_COLUMNS.intersection(frame.columns)
+        if forbidden:
+            fail(f"{label} contain private columns: {forbidden}")
+        if len(frame) != len(full_model):
+            fail(f"{label} must contain one row per model observation.")
+        if not frame["sample_id"].equals(full_model["sample_id"]):
+            fail(f"{label} are not aligned with the full model matrix.")
+    for column in (
+        "fold_random_5fold",
+        "fold_spatial_block_10km",
+        "fold_spatial_block_20km",
+    ):
+        if set(folds[column].unique()) != {1, 2, 3, 4, 5}:
+            fail(f"{column} must contain folds 1 to 5.")
+    if np.nanmax(
+        np.abs(oof["observed"] - full_model["regain_sen_slope_2000_2025"])
+    ) > 0:
+        fail("Out-of-fold observed values differ from the model response.")
+    revision = ROOT / "data" / "results" / "revision"
+    if not (revision / "README.md").is_file():
+        fail("Revision result tables are missing their README.")
+    for path in revision.rglob("*.csv"):
+        header = set(pd.read_csv(path, nrows=0).columns)
+        forbidden = FORBIDDEN_COLUMNS.intersection(header)
+        if forbidden:
+            fail(f"{path.relative_to(ROOT)} contains private columns: {forbidden}")
+
+
 def check_private_strings() -> None:
     extensions = {".py", ".yml", ".yaml", ".json", ".md", ".txt", ".csv"}
     for path in ROOT.rglob("*"):
@@ -191,6 +229,7 @@ def check_eci_reconstruction() -> None:
 
 def main() -> None:
     check_data()
+    check_revision_files()
     check_private_strings()
     check_eci_reconstruction()
     print("Release verification passed.")

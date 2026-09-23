@@ -1,0 +1,40 @@
+indicator,field,max_absolute_error
+ELEV,VIF,0.0
+SLOPE,VIF,0.0
+NORTH,VIF,0.0
+TPI5,VIF,0.0
+PRCPm,VIF,1.5543122344752192e-15
+PRCPs,VIF,2.886579864025407e-15
+TEMPm,VIF,1.1102230246251565e-15
+VPDs,VIF,1.3322676295501878e-15
+SRADs,VIF,4.440892098500626e-16
+MNDWIm,VIF,0.0
+MNDWIs,VIF,0.0
+PDSIs,VIF,0.0
+SWRm,VIF,0.0
+SWRs,VIF,0.0
+HAND,VIF,0.0
+FORm,VIF,0.0
+FORs,VIF,0.0
+CRPm,VIF,0.0
+CRPs,VIF,0.0
+BLTs,VIF,0.0
+BARs,VIF,0.0
+POP,VIF,0.0
+POPs,VIF,0.0
+NTLs,VIF,0.0
+RDIST,VIF,0.0
+MKDE3,VIF,0.0
+MDI,VIF,0.0
+Terrain -> Hydrology,alternative_path,1.1102230246251565e-16
+Terrain -> LandCover,alternative_path,2.220446049250313e-16
+Terrain -> REGAIN,alternative_path,5.551115123125783e-16
+Climate -> Hydrology,alternative_path,1.5265566588595902e-16
+Climate -> LandCover,alternative_path,4.510281037539698e-16
+Climate -> REGAIN,alternative_path,1.8388068845354155e-16
+Human -> Hydrology,alternative_path,2.1510571102112408e-16
+Human -> LandCover,alternative_path,2.220446049250313e-16
+Human -> REGAIN,alternative_path,4.996003610813204e-16
+Hydrology -> REGAIN,alternative_path,1.1102230246251565e-16
+LandCover -> REGAIN,alternative_path,4.440892098500626e-16
+LandCover -> Hydrology,alternative_path,4.718447854656915e-16

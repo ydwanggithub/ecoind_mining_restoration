@@ -1,0 +1,6 @@
+,alternative_cluster_0,alternative_cluster_1,alternative_cluster_2,alternative_cluster_3,alternative_cluster_4
+temporary_recovery_with_late_setback,56,38,121,34,5672
+rebound_after_early_decline,16,6359,210,167,163
+gradual_recovery,9,72,9285,278,90
+sustained_recovery,0,90,383,13972,43
+persistent_decline,1211,0,0,0,4

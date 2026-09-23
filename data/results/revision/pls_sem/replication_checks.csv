@@ -1,0 +1,40 @@
+quantity,max_absolute_error
+covariance_vs_plspm_paths,3.154041697955856e-13
+covariance_vs_plspm_weights,1.867561660873207e-12
+submitted_path_Terrain -> Hydrology,6.661338147750939e-16
+submitted_path_Terrain -> LandCover,9.992007221626409e-16
+submitted_path_Terrain -> REGAIN,6.661338147750939e-16
+submitted_path_Climate -> Hydrology,1.1102230246251565e-16
+submitted_path_Climate -> LandCover,1.9081958235744878e-16
+submitted_path_Climate -> REGAIN,1.0408340855860843e-16
+submitted_path_Human -> Hydrology,3.22441726097189e-16
+submitted_path_Human -> LandCover,4.440892098500626e-16
+submitted_path_Human -> REGAIN,3.7470027081099033e-16
+submitted_path_Hydrology -> LandCover,1.5265566588595902e-16
+submitted_path_Hydrology -> REGAIN,1.6653345369377348e-16
+submitted_path_LandCover -> REGAIN,1.1102230246251565e-16
+submitted_weight_ELEV,0.0
+submitted_weight_SLOPE,0.0
+submitted_weight_NORTH,5.551115123125783e-17
+submitted_weight_TPI5,1.1102230246251565e-16
+submitted_weight_PRCPm,1.7208456881689926e-15
+submitted_weight_PRCPs,3.9968028886505635e-15
+submitted_weight_TEMPm,2.886579864025407e-15
+submitted_weight_VPDs,5.10702591327572e-15
+submitted_weight_SRADs,3.469446951953614e-15
+submitted_weight_MNDWIm,5.551115123125783e-17
+submitted_weight_MNDWIs,1.1102230246251565e-16
+submitted_weight_PDSIs,1.6653345369377348e-16
+submitted_weight_SWRm,8.326672684688674e-17
+submitted_weight_SWRs,2.220446049250313e-16
+submitted_weight_HAND,1.1102230246251565e-16
+submitted_weight_FORs,3.3306690738754696e-16
+submitted_weight_CRPm,4.440892098500626e-16
+submitted_weight_BLTs,5.551115123125783e-16
+submitted_weight_BARs,0.0
+submitted_weight_POP,5.551115123125783e-16
+submitted_weight_POPs,1.6653345369377348e-16
+submitted_weight_NTLs,6.661338147750939e-16
+submitted_weight_RDIST,8.326672684688674e-17
+submitted_weight_MKDE3,9.020562075079397e-17
+submitted_weight_MDI,0.0

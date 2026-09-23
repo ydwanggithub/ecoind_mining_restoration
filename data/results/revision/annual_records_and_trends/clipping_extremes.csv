@@ -1,0 +1,9 @@
+component,side,year_of_maximum,maximum_clipped_fraction
+bsi_mean,lower,2022,0.1058488545231315
+bsi_mean,upper,2003,0.0721245526501397
+kndvi_mean,lower,2004,0.0630077584180141
+kndvi_mean,upper,2024,0.0785768396854836
+nbr_mean,lower,2004,0.0546223975340247
+nbr_mean,upper,2022,0.1021394425432982
+ndmi_mean,lower,2003,0.0756772289125153
+ndmi_mean,upper,2022,0.1077819283717771

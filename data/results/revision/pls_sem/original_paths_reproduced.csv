@@ -1,0 +1,13 @@
+source,target,path,coefficient
+Terrain,Hydrology,Terrain -> Hydrology,-0.8268680858330872
+Terrain,LandCover,Terrain -> LandCover,0.3628630163528018
+Terrain,REGAIN,Terrain -> REGAIN,-0.4347471761867925
+Climate,Hydrology,Climate -> Hydrology,-0.04105424501719378
+Climate,LandCover,Climate -> LandCover,-0.021682452835260654
+Climate,REGAIN,Climate -> REGAIN,-0.03397784657929508
+Human,Hydrology,Human -> Hydrology,0.001886836177177325
+Human,LandCover,Human -> LandCover,-0.6385228281637569
+Human,REGAIN,Human -> REGAIN,0.09696950516874243
+Hydrology,LandCover,Hydrology -> LandCover,0.1095222289829503
+Hydrology,REGAIN,Hydrology -> REGAIN,-0.12930194681402127
+LandCover,REGAIN,LandCover -> REGAIN,0.7507469034747203

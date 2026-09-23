@@ -1,4 +1,10 @@
-"""Fit the primary XGBoost model with out of fold tree SHAP attribution."""
+"""Fit the primary XGBoost model with out of fold tree SHAP attribution.
+
+By default the model is evaluated with a shuffled fivefold partition. With
+``--cv-design``, the published fold assignments are used instead, so the
+random, 10 km spatial block and 20 km spatial block designs can be reproduced
+without releasing block identifiers or coordinates.
+"""
 
 from __future__ import annotations
 
@@ -19,6 +25,8 @@ ROOT = Path(__file__).resolve().parents[1]
 DEFAULT_DATA = ROOT / "data" / "model_matrix_sample.csv.gz"
 DEFAULT_LEDGER = ROOT / "data" / "predictor_ledger.csv"
 DEFAULT_OUTPUT = ROOT / "outputs" / "xgboost_shap"
+DEFAULT_FOLDS = ROOT / "data" / "cv_fold_assignments.csv.gz"
+CV_DESIGNS = ("shuffled", "random_5fold", "spatial_block_10km", "spatial_block_20km")
 TARGET = "regain_sen_slope_2000_2025"
 SEED = 42
 LOCKED_XGBOOST_VERSION = "2.1.4"
@@ -65,9 +73,47 @@ def parse_args() -> argparse.Namespace:
     parser.add_argument("--output-dir", type=Path, default=DEFAULT_OUTPUT)
     parser.add_argument("--folds", type=int, default=5)
     parser.add_argument(
+        "--cv-design",
+        choices=CV_DESIGNS,
+        default="shuffled",
+        help=(
+            "shuffled: seeded KFold partition; other values use the published "
+            "fold assignments (spatial_block_10km is the primary design)"
+        ),
+    )
+    parser.add_argument("--folds-file", type=Path, default=DEFAULT_FOLDS)
+    parser.add_argument(
         "--estimators", type=int, default=XGB_PARAMETERS["n_estimators"]
     )
     return parser.parse_args()
+
+
+def fold_splits(
+    frame: pd.DataFrame, design: str, folds_file: Path, n_folds: int
+) -> list[tuple[int, np.ndarray, np.ndarray]]:
+    """Return (fold, train_index, test_index) tuples for the chosen design."""
+    if design == "shuffled":
+        splits = KFold(n_folds, shuffle=True, random_state=SEED)
+        return [
+            (fold, train, test)
+            for fold, (train, test) in enumerate(splits.split(frame), start=1)
+        ]
+    assignments = pd.read_csv(folds_file)
+    column = f"fold_{design}"
+    if column not in assignments.columns:
+        raise ValueError(f"{folds_file} has no column {column}")
+    merged = frame[["sample_id"]].merge(
+        assignments[["sample_id", column]], on="sample_id", how="left"
+    )
+    if merged[column].isna().any():
+        raise ValueError("Some rows have no fold assignment for this design.")
+    labels = merged[column].to_numpy(dtype=int)
+    output = []
+    for fold in sorted(np.unique(labels)):
+        test = np.flatnonzero(labels == fold)
+        train = np.flatnonzero(labels != fold)
+        output.append((int(fold), train, test))
+    return output
 
 
 def main() -> None:
@@ -89,7 +135,7 @@ def main() -> None:
 
     x_raw = frame[features]
     y = frame[TARGET].to_numpy(dtype=float)
-    splits = KFold(args.folds, shuffle=True, random_state=SEED)
+    splits = fold_splits(frame, args.cv_design, args.folds_file, args.folds)
     predictions = np.full(len(frame), np.nan, dtype=float)
     shap_values = np.full((len(frame), len(features)), np.nan, dtype=np.float32)
     fold_ids = np.full(len(frame), -1, dtype=int)
@@ -97,9 +143,7 @@ def main() -> None:
 
     parameters = dict(XGB_PARAMETERS)
     parameters["n_estimators"] = args.estimators
-    for fold, (train_index, test_index) in enumerate(
-        splits.split(x_raw), start=1
-    ):
+    for fold, train_index, test_index in splits:
         imputer = SimpleImputer(strategy="median")
         x_train = imputer.fit_transform(x_raw.iloc[train_index])
         x_test = imputer.transform(x_raw.iloc[test_index])
@@ -134,7 +178,8 @@ def main() -> None:
             {
                 "n": len(frame),
                 "n_predictors": len(features),
-                "folds": args.folds,
+                "cv_design": args.cv_design,
+                "folds": len(splits),
                 "xgboost_version": xgb.__version__,
                 "random_seed": SEED,
                 "r2_pooled_oof": r2_score(y, predictions),

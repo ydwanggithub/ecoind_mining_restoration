@@ -1,0 +1,457 @@
+configuration,feature,mean_abs_shap,rank,abbreviation,family
+baseline,forest_frac_slope_2000_2025,0.003371061757206917,1,FORs,Land cover
+baseline,mndwi_mean_2000_2025,0.001292732427828014,2,MNDWIm,Hydrology
+baseline,mndwi_slope_2000_2025,0.001236409181728959,3,MNDWIs,Hydrology
+baseline,built_frac_slope_2000_2025,0.0011685771169140935,4,BLTs,Land cover
+baseline,forest_frac_mean_2000_2025,0.0010747277410700917,5,FORm,Land cover
+baseline,cropland_frac_slope_2000_2025,0.0008265399956144392,6,CRPs,Land cover
+baseline,cropland_frac_mean_2000_2025,0.0007156183128245175,7,CRPm,Land cover
+baseline,slope_mean,0.0006957712466828525,8,SLOPE,Terrain
+baseline,terrain_northness_mean,0.0006185703095979989,9,NORTH,Terrain
+baseline,ssrd_wm2_slope_2000_2025,0.0004926206893287599,10,SRADs,Climate
+baseline,grass_frac_slope_2000_2025,0.0004468417610041797,11,GRSs,Land cover
+baseline,pdsi_slope_2000_2025,0.0004385021165944636,12,PDSIs,Hydrology
+baseline,elevation_mean,0.0003659737412817776,13,ELEV,Terrain
+baseline,terrain_tpi_5km,0.0003246336127631366,14,TPI5,Terrain
+baseline,hydro_hand_m,0.0003132506099063903,15,HAND,Hydrology
+baseline,pop_log_density_2000,0.00026482323301024735,16,POP,Human activity
+baseline,soil_water_top_slope_2000_2025,0.0002583498426247388,17,SWTs,Hydrology
+baseline,ntl_viirs_slope_2014_2025,0.0002564628957770765,18,NTLs,Human activity
+baseline,mkde3k,0.00024927090271376073,19,MKDE3,Human activity
+baseline,prcp_mm_slope_2000_2025,0.00023987800523173064,20,PRCPs,Climate
+baseline,soil_water_rootzone_slope_2000_2025,0.0002394175244262442,21,SWRs,Hydrology
+baseline,road_dist_km,0.0002321007486898452,22,RDIST,Human activity
+baseline,built_frac_mean_2000_2025,0.00022927722602616996,23,BLTm,Land cover
+baseline,terrain_eastness_mean,0.0002272758138133213,24,EAST,Terrain
+baseline,ntl_viirs_mean_2014_2025,0.00022236636141315103,25,NTLm,Human activity
+baseline,prcp_mm_mean_2000_2025,0.00020682056492660195,26,PRCPm,Climate
+baseline,pdsi_mean_2000_2025,0.00019963330123573542,27,PDSIm,Hydrology
+baseline,aet_mm_slope_2000_2025,0.00018958743021357805,28,AETs,Climate
+baseline,hydro_twi_proxy,0.00018607958918437362,29,TWI,Hydrology
+baseline,hydro_log_upstream_area,0.00018484033353161067,30,UPA,Hydrology
+baseline,mdist_km,0.00017928140005096793,31,MDIST,Human activity
+baseline,terrain_tpi_1km,0.00016034318832680583,32,TPI1,Terrain
+baseline,def_mm_slope_2000_2025,0.00015700356743764132,33,CWDs,Climate
+baseline,vpd_kpa_slope_2000_2025,0.00015472709492314607,34,VPDs,Climate
+baseline,aet_mm_mean_2000_2025,0.00015257889754138887,35,AETm,Climate
+baseline,ssrd_wm2_mean_2000_2025,0.00013806254719384015,36,SRADm,Climate
+baseline,runoff_mm_mean_2000_2025,0.00012859160779044032,37,RUNm,Hydrology
+baseline,runoff_mm_slope_2000_2025,0.00012550943938549608,38,RUNs,Hydrology
+baseline,soil_water_rootzone_mean_2000_2025,0.00011900593381142244,39,SWRm,Hydrology
+baseline,pet_mm_mean_2000_2025,0.00011887215077877045,40,PETm,Climate
+baseline,vpd_kpa_mean_2000_2025,0.00011450587771832943,41,VPDm,Climate
+baseline,tmean_c_mean_2000_2025,0.00011408955469960347,42,TEMPm,Climate
+baseline,pet_mm_slope_2000_2025,0.00011336812167428434,43,PETs,Climate
+baseline,def_mm_mean_2000_2025,0.00011303505016257986,44,CWDm,Climate
+baseline,soil_water_top_mean_2000_2025,0.00011074146459577605,45,SWTm,Hydrology
+baseline,tmean_c_slope_2000_2025,0.00010884621588047594,46,TEMPs,Climate
+baseline,pop_log_change_2000_2020_per_year,8.980980783235282e-05,47,POPs,Human activity
+baseline,water_frac_mean_2000_2025,4.858574175159447e-05,48,WATm,Land cover
+baseline,grass_frac_mean_2000_2025,3.861137156491168e-05,49,GRSm,Land cover
+baseline,hydro_stream_distance_km,3.104080678895116e-05,50,SDIST,Hydrology
+baseline,mcnt2k,2.431516259093769e-05,51,MCNT2,Human activity
+baseline,mining_disturbance_intensity_2000_2025,2.025592402787879e-05,52,MDI,Human activity
+baseline,water_frac_slope_2000_2025,1.5531195458606817e-05,53,WATs,Land cover
+baseline,barren_frac_mean_2000_2025,7.2325938162975945e-06,54,BARm,Land cover
+baseline,shrub_frac_mean_2000_2025,7.067764727253234e-06,55,SHRm,Land cover
+baseline,barren_frac_slope_2000_2025,3.4348092867730884e-06,56,BARs,Land cover
+baseline,shrub_frac_slope_2000_2025,1.1981042007391807e-06,57,SHRs,Land cover
+learning_rate_low,forest_frac_slope_2000_2025,0.0034653390757739544,1,FORs,Land cover
+learning_rate_low,mndwi_mean_2000_2025,0.0012431704672053456,2,MNDWIm,Hydrology
+learning_rate_low,mndwi_slope_2000_2025,0.0011995028471574187,3,MNDWIs,Hydrology
+learning_rate_low,built_frac_slope_2000_2025,0.001150762545876205,4,BLTs,Land cover
+learning_rate_low,forest_frac_mean_2000_2025,0.001044084201566875,5,FORm,Land cover
+learning_rate_low,cropland_frac_slope_2000_2025,0.0007499625207856297,6,CRPs,Land cover
+learning_rate_low,cropland_frac_mean_2000_2025,0.0006738583906553686,7,CRPm,Land cover
+learning_rate_low,slope_mean,0.0006179485935717821,8,SLOPE,Terrain
+learning_rate_low,terrain_northness_mean,0.0005932001513428986,9,NORTH,Terrain
+learning_rate_low,ssrd_wm2_slope_2000_2025,0.0005016313516534865,10,SRADs,Climate
+learning_rate_low,grass_frac_slope_2000_2025,0.0004573457990773022,11,GRSs,Land cover
+learning_rate_low,pdsi_slope_2000_2025,0.00043070680112577975,12,PDSIs,Hydrology
+learning_rate_low,elevation_mean,0.00034901979961432517,13,ELEV,Terrain
+learning_rate_low,terrain_tpi_5km,0.0003036893031094223,14,TPI5,Terrain
+learning_rate_low,hydro_hand_m,0.0002997943665832281,15,HAND,Hydrology
+learning_rate_low,pop_log_density_2000,0.0002582563320174813,16,POP,Human activity
+learning_rate_low,soil_water_top_slope_2000_2025,0.00025630512391217053,17,SWTs,Hydrology
+learning_rate_low,ntl_viirs_slope_2014_2025,0.00022705151059199125,18,NTLs,Human activity
+learning_rate_low,prcp_mm_slope_2000_2025,0.00022084642841946334,19,PRCPs,Climate
+learning_rate_low,mkde3k,0.00021106359781697392,20,MKDE3,Human activity
+learning_rate_low,soil_water_rootzone_slope_2000_2025,0.0002097111428156495,21,SWRs,Hydrology
+learning_rate_low,built_frac_mean_2000_2025,0.00019644765416160226,22,BLTm,Land cover
+learning_rate_low,prcp_mm_mean_2000_2025,0.00019452624837867916,23,PRCPm,Climate
+learning_rate_low,aet_mm_slope_2000_2025,0.00019425708160270005,24,AETs,Climate
+learning_rate_low,terrain_eastness_mean,0.00019351704395376146,25,EAST,Terrain
+learning_rate_low,road_dist_km,0.00019004489877261221,26,RDIST,Human activity
+learning_rate_low,ntl_viirs_mean_2014_2025,0.00018994226411450654,27,NTLm,Human activity
+learning_rate_low,pdsi_mean_2000_2025,0.0001810488902265206,28,PDSIm,Hydrology
+learning_rate_low,hydro_twi_proxy,0.0001641737180761993,29,TWI,Hydrology
+learning_rate_low,vpd_kpa_slope_2000_2025,0.0001563586265547201,30,VPDs,Climate
+learning_rate_low,mdist_km,0.00015259582141879946,31,MDIST,Human activity
+learning_rate_low,def_mm_slope_2000_2025,0.00014198521967045963,32,CWDs,Climate
+learning_rate_low,aet_mm_mean_2000_2025,0.00014003223623149097,33,AETm,Climate
+learning_rate_low,terrain_tpi_1km,0.00013909807603340596,34,TPI1,Terrain
+learning_rate_low,hydro_log_upstream_area,0.0001376430445816368,35,UPA,Hydrology
+learning_rate_low,ssrd_wm2_mean_2000_2025,0.00012476964911911637,36,SRADm,Climate
+learning_rate_low,runoff_mm_mean_2000_2025,0.00012352150224614888,37,RUNm,Hydrology
+learning_rate_low,pet_mm_mean_2000_2025,0.00011368063860572875,38,PETm,Climate
+learning_rate_low,soil_water_rootzone_mean_2000_2025,0.000110009299532976,39,SWRm,Hydrology
+learning_rate_low,tmean_c_mean_2000_2025,0.00010781814489746466,40,TEMPm,Climate
+learning_rate_low,def_mm_mean_2000_2025,0.00010772536916192621,41,CWDm,Climate
+learning_rate_low,vpd_kpa_mean_2000_2025,0.00010688029578886926,42,VPDm,Climate
+learning_rate_low,pet_mm_slope_2000_2025,0.00010166299034608528,43,PETs,Climate
+learning_rate_low,runoff_mm_slope_2000_2025,0.00010128388385055587,44,RUNs,Hydrology
+learning_rate_low,tmean_c_slope_2000_2025,9.957948350347579e-05,45,TEMPs,Climate
+learning_rate_low,soil_water_top_mean_2000_2025,9.486277122050524e-05,46,SWTm,Hydrology
+learning_rate_low,pop_log_change_2000_2020_per_year,7.860239566070959e-05,47,POPs,Human activity
+learning_rate_low,water_frac_mean_2000_2025,4.805409116670489e-05,48,WATm,Land cover
+learning_rate_low,grass_frac_mean_2000_2025,3.549762550392188e-05,49,GRSm,Land cover
+learning_rate_low,hydro_stream_distance_km,2.4887202016543597e-05,50,SDIST,Hydrology
+learning_rate_low,mcnt2k,1.755412267812062e-05,51,MCNT2,Human activity
+learning_rate_low,mining_disturbance_intensity_2000_2025,1.5837858882150613e-05,52,MDI,Human activity
+learning_rate_low,water_frac_slope_2000_2025,1.4504928003589157e-05,53,WATs,Land cover
+learning_rate_low,barren_frac_mean_2000_2025,6.849211786175147e-06,54,BARm,Land cover
+learning_rate_low,shrub_frac_mean_2000_2025,6.01588135396014e-06,55,SHRm,Land cover
+learning_rate_low,barren_frac_slope_2000_2025,2.872124014174915e-06,56,BARs,Land cover
+learning_rate_low,shrub_frac_slope_2000_2025,5.82769246193493e-07,57,SHRs,Land cover
+learning_rate_high,forest_frac_slope_2000_2025,0.0032772694248706102,1,FORs,Land cover
+learning_rate_high,mndwi_mean_2000_2025,0.0013011734699830413,2,MNDWIm,Hydrology
+learning_rate_high,mndwi_slope_2000_2025,0.0012593056308105588,3,MNDWIs,Hydrology
+learning_rate_high,built_frac_slope_2000_2025,0.00118384906090796,4,BLTs,Land cover
+learning_rate_high,forest_frac_mean_2000_2025,0.001146256341598928,5,FORm,Land cover
+learning_rate_high,cropland_frac_slope_2000_2025,0.0008998053963296115,6,CRPs,Land cover
+learning_rate_high,slope_mean,0.0007464083610102534,7,SLOPE,Terrain
+learning_rate_high,cropland_frac_mean_2000_2025,0.0007310034125111997,8,CRPm,Land cover
+learning_rate_high,terrain_northness_mean,0.0006321761175058782,9,NORTH,Terrain
+learning_rate_high,ssrd_wm2_slope_2000_2025,0.0004855296283494681,10,SRADs,Climate
+learning_rate_high,grass_frac_slope_2000_2025,0.00045866260188631713,11,GRSs,Land cover
+learning_rate_high,pdsi_slope_2000_2025,0.00044645683374255896,12,PDSIs,Hydrology
+learning_rate_high,elevation_mean,0.0003816971438936889,13,ELEV,Terrain
+learning_rate_high,terrain_tpi_5km,0.0003453849349170923,14,TPI5,Terrain
+learning_rate_high,hydro_hand_m,0.0003279514785390347,15,HAND,Hydrology
+learning_rate_high,ntl_viirs_slope_2014_2025,0.00028790030046366155,16,NTLs,Human activity
+learning_rate_high,mkde3k,0.0002799473295453936,17,MKDE3,Human activity
+learning_rate_high,soil_water_top_slope_2000_2025,0.00027366765425540507,18,SWTs,Hydrology
+learning_rate_high,pop_log_density_2000,0.0002735392190515995,19,POP,Human activity
+learning_rate_high,road_dist_km,0.00026472817989997566,20,RDIST,Human activity
+learning_rate_high,terrain_eastness_mean,0.0002635764249134809,21,EAST,Terrain
+learning_rate_high,ntl_viirs_mean_2014_2025,0.00025330152129754424,22,NTLm,Human activity
+learning_rate_high,built_frac_mean_2000_2025,0.0002509568294044584,23,BLTm,Land cover
+learning_rate_high,soil_water_rootzone_slope_2000_2025,0.00025050409021787345,24,SWRs,Hydrology
+learning_rate_high,hydro_log_upstream_area,0.0002350789145566523,25,UPA,Hydrology
+learning_rate_high,pdsi_mean_2000_2025,0.00022526631073560566,26,PDSIm,Hydrology
+learning_rate_high,prcp_mm_slope_2000_2025,0.0002224229247076437,27,PRCPs,Climate
+learning_rate_high,prcp_mm_mean_2000_2025,0.0002176659181714058,28,PRCPm,Climate
+learning_rate_high,hydro_twi_proxy,0.0002157593407901004,29,TWI,Hydrology
+learning_rate_high,mdist_km,0.00021494475367944688,30,MDIST,Human activity
+learning_rate_high,aet_mm_slope_2000_2025,0.0002148620260413736,31,AETs,Climate
+learning_rate_high,terrain_tpi_1km,0.00020258281438145787,32,TPI1,Terrain
+learning_rate_high,runoff_mm_mean_2000_2025,0.0001718031126074493,33,RUNm,Hydrology
+learning_rate_high,aet_mm_mean_2000_2025,0.0001687904732534662,34,AETm,Climate
+learning_rate_high,def_mm_slope_2000_2025,0.00016705854795873165,35,CWDs,Climate
+learning_rate_high,ssrd_wm2_mean_2000_2025,0.0001534858311060816,36,SRADm,Climate
+learning_rate_high,vpd_kpa_slope_2000_2025,0.00015180172340478748,37,VPDs,Climate
+learning_rate_high,runoff_mm_slope_2000_2025,0.00013227385352365673,38,RUNs,Hydrology
+learning_rate_high,vpd_kpa_mean_2000_2025,0.0001320083683822304,39,VPDm,Climate
+learning_rate_high,soil_water_rootzone_mean_2000_2025,0.00013049214612692595,40,SWRm,Hydrology
+learning_rate_high,pet_mm_mean_2000_2025,0.00013005291111767292,41,PETm,Climate
+learning_rate_high,def_mm_mean_2000_2025,0.00012539375165943056,42,CWDm,Climate
+learning_rate_high,tmean_c_mean_2000_2025,0.00012456229887902737,43,TEMPm,Climate
+learning_rate_high,soil_water_top_mean_2000_2025,0.00012380610860418528,44,SWTm,Hydrology
+learning_rate_high,pet_mm_slope_2000_2025,0.00012025394971715286,45,PETs,Climate
+learning_rate_high,tmean_c_slope_2000_2025,0.00011483630078146234,46,TEMPs,Climate
+learning_rate_high,pop_log_change_2000_2020_per_year,9.191267599817365e-05,47,POPs,Human activity
+learning_rate_high,water_frac_mean_2000_2025,5.6392756960121915e-05,48,WATm,Land cover
+learning_rate_high,grass_frac_mean_2000_2025,4.758510476676747e-05,49,GRSm,Land cover
+learning_rate_high,hydro_stream_distance_km,4.135364724788815e-05,50,SDIST,Hydrology
+learning_rate_high,mcnt2k,2.873318226193078e-05,51,MCNT2,Human activity
+learning_rate_high,mining_disturbance_intensity_2000_2025,2.447760198265314e-05,52,MDI,Human activity
+learning_rate_high,water_frac_slope_2000_2025,1.672602775215637e-05,53,WATs,Land cover
+learning_rate_high,barren_frac_mean_2000_2025,8.543397598259617e-06,54,BARm,Land cover
+learning_rate_high,shrub_frac_mean_2000_2025,7.001522135396954e-06,55,SHRm,Land cover
+learning_rate_high,barren_frac_slope_2000_2025,2.236194859506213e-06,56,BARs,Land cover
+learning_rate_high,shrub_frac_slope_2000_2025,1.1859092410304584e-06,57,SHRs,Land cover
+leaves_low,forest_frac_slope_2000_2025,0.0034114327281713486,1,FORs,Land cover
+leaves_low,mndwi_mean_2000_2025,0.001317581394687295,2,MNDWIm,Hydrology
+leaves_low,mndwi_slope_2000_2025,0.0012649580603465438,3,MNDWIs,Hydrology
+leaves_low,built_frac_slope_2000_2025,0.0011939066462218761,4,BLTs,Land cover
+leaves_low,forest_frac_mean_2000_2025,0.0011256677098572254,5,FORm,Land cover
+leaves_low,cropland_frac_slope_2000_2025,0.0008508681785315275,6,CRPs,Land cover
+leaves_low,cropland_frac_mean_2000_2025,0.0007273448281921446,7,CRPm,Land cover
+leaves_low,slope_mean,0.0006989070679992437,8,SLOPE,Terrain
+leaves_low,terrain_northness_mean,0.00062619085656479,9,NORTH,Terrain
+leaves_low,ssrd_wm2_slope_2000_2025,0.0005108997575007379,10,SRADs,Climate
+leaves_low,grass_frac_slope_2000_2025,0.0004856084706261754,11,GRSs,Land cover
+leaves_low,pdsi_slope_2000_2025,0.00046885930350981653,12,PDSIs,Hydrology
+leaves_low,elevation_mean,0.0003618611954152584,13,ELEV,Terrain
+leaves_low,hydro_hand_m,0.0003244358522351831,14,HAND,Hydrology
+leaves_low,terrain_tpi_5km,0.0003223320236429572,15,TPI5,Terrain
+leaves_low,soil_water_top_slope_2000_2025,0.0002887193113565445,16,SWTs,Hydrology
+leaves_low,pop_log_density_2000,0.00028536157333292067,17,POP,Human activity
+leaves_low,ntl_viirs_slope_2014_2025,0.00026162463473156095,18,NTLs,Human activity
+leaves_low,built_frac_mean_2000_2025,0.0002470968756824732,19,BLTm,Land cover
+leaves_low,mkde3k,0.0002441407705191523,20,MKDE3,Human activity
+leaves_low,prcp_mm_slope_2000_2025,0.00024127826327458024,21,PRCPs,Climate
+leaves_low,soil_water_rootzone_slope_2000_2025,0.00023114510986488312,22,SWRs,Hydrology
+leaves_low,terrain_eastness_mean,0.00022538322082255036,23,EAST,Terrain
+leaves_low,ntl_viirs_mean_2014_2025,0.000220467263716273,24,NTLm,Human activity
+leaves_low,prcp_mm_mean_2000_2025,0.00021870603086426854,25,PRCPm,Climate
+leaves_low,road_dist_km,0.0002103890001308173,26,RDIST,Human activity
+leaves_low,aet_mm_slope_2000_2025,0.00020606364705599844,27,AETs,Climate
+leaves_low,pdsi_mean_2000_2025,0.00020068083540536463,28,PDSIm,Hydrology
+leaves_low,hydro_twi_proxy,0.0001718019339023158,29,TWI,Hydrology
+leaves_low,aet_mm_mean_2000_2025,0.00016884088108781725,30,AETm,Climate
+leaves_low,mdist_km,0.00016569661966059357,31,MDIST,Human activity
+leaves_low,hydro_log_upstream_area,0.00016396158025600016,32,UPA,Hydrology
+leaves_low,def_mm_slope_2000_2025,0.0001637349632801488,33,CWDs,Climate
+leaves_low,vpd_kpa_slope_2000_2025,0.0001594282512087375,34,VPDs,Climate
+leaves_low,terrain_tpi_1km,0.0001550230517750606,35,TPI1,Terrain
+leaves_low,runoff_mm_mean_2000_2025,0.0001424740912625566,36,RUNm,Hydrology
+leaves_low,pet_mm_slope_2000_2025,0.00014212034875527024,37,PETs,Climate
+leaves_low,def_mm_mean_2000_2025,0.00013693334767594934,38,CWDm,Climate
+leaves_low,ssrd_wm2_mean_2000_2025,0.00013248833420220762,39,SRADm,Climate
+leaves_low,runoff_mm_slope_2000_2025,0.00012636062456294894,40,RUNs,Hydrology
+leaves_low,tmean_c_mean_2000_2025,0.00012466413318179548,41,TEMPm,Climate
+leaves_low,soil_water_rootzone_mean_2000_2025,0.00012372135824989527,42,SWRm,Hydrology
+leaves_low,pet_mm_mean_2000_2025,0.00012280185183044523,43,PETm,Climate
+leaves_low,vpd_kpa_mean_2000_2025,0.00012135993165429682,44,VPDm,Climate
+leaves_low,tmean_c_slope_2000_2025,0.00010783494508359581,45,TEMPs,Climate
+leaves_low,soil_water_top_mean_2000_2025,0.00010502753866603598,46,SWTm,Hydrology
+leaves_low,pop_log_change_2000_2020_per_year,8.501788397552446e-05,47,POPs,Human activity
+leaves_low,water_frac_mean_2000_2025,5.4098454711493105e-05,48,WATm,Land cover
+leaves_low,hydro_stream_distance_km,3.349884718772955e-05,49,SDIST,Hydrology
+leaves_low,grass_frac_mean_2000_2025,3.30097354890313e-05,50,GRSm,Land cover
+leaves_low,mcnt2k,2.0279892851249315e-05,51,MCNT2,Human activity
+leaves_low,mining_disturbance_intensity_2000_2025,2.0277888324926607e-05,52,MDI,Human activity
+leaves_low,water_frac_slope_2000_2025,1.709928983473219e-05,53,WATs,Land cover
+leaves_low,shrub_frac_mean_2000_2025,8.862915819918271e-06,54,SHRm,Land cover
+leaves_low,barren_frac_mean_2000_2025,8.240628631028812e-06,55,BARm,Land cover
+leaves_low,barren_frac_slope_2000_2025,3.6537808227876667e-06,56,BARs,Land cover
+leaves_low,shrub_frac_slope_2000_2025,9.571205055181053e-07,57,SHRs,Land cover
+leaves_high,forest_frac_slope_2000_2025,0.0033040044363588095,1,FORs,Land cover
+leaves_high,mndwi_mean_2000_2025,0.0012098564766347408,2,MNDWIm,Hydrology
+leaves_high,mndwi_slope_2000_2025,0.0011886070715263486,3,MNDWIs,Hydrology
+leaves_high,built_frac_slope_2000_2025,0.0011474526254460216,4,BLTs,Land cover
+leaves_high,forest_frac_mean_2000_2025,0.001035747118294239,5,FORm,Land cover
+leaves_high,cropland_frac_slope_2000_2025,0.000829795200843364,6,CRPs,Land cover
+leaves_high,cropland_frac_mean_2000_2025,0.0006904723704792559,7,CRPm,Land cover
+leaves_high,slope_mean,0.0006632329896092415,8,SLOPE,Terrain
+leaves_high,terrain_northness_mean,0.0005921804695390165,9,NORTH,Terrain
+leaves_high,ssrd_wm2_slope_2000_2025,0.00046110397670418024,10,SRADs,Climate
+leaves_high,grass_frac_slope_2000_2025,0.00043539845501072705,11,GRSs,Land cover
+leaves_high,pdsi_slope_2000_2025,0.00040760476258583367,12,PDSIs,Hydrology
+leaves_high,elevation_mean,0.0003692934405989945,13,ELEV,Terrain
+leaves_high,terrain_tpi_5km,0.0003227145061828196,14,TPI5,Terrain
+leaves_high,hydro_hand_m,0.00030790705932304263,15,HAND,Hydrology
+leaves_high,soil_water_top_slope_2000_2025,0.00025160127552226186,16,SWTs,Hydrology
+leaves_high,ntl_viirs_slope_2014_2025,0.000249368924414739,17,NTLs,Human activity
+leaves_high,soil_water_rootzone_slope_2000_2025,0.00024533396936021745,18,SWRs,Hydrology
+leaves_high,pop_log_density_2000,0.00024500355357304215,19,POP,Human activity
+leaves_high,mkde3k,0.00024292257148772478,20,MKDE3,Human activity
+leaves_high,road_dist_km,0.00023401746875606477,21,RDIST,Human activity
+leaves_high,ntl_viirs_mean_2014_2025,0.00022398112923838198,22,NTLm,Human activity
+leaves_high,terrain_eastness_mean,0.0002214061823906377,23,EAST,Terrain
+leaves_high,prcp_mm_slope_2000_2025,0.00021529504738282412,24,PRCPs,Climate
+leaves_high,built_frac_mean_2000_2025,0.00020418300118763,25,BLTm,Land cover
+leaves_high,pdsi_mean_2000_2025,0.00019891357806045562,26,PDSIm,Hydrology
+leaves_high,hydro_log_upstream_area,0.0001948623248608783,27,UPA,Hydrology
+leaves_high,prcp_mm_mean_2000_2025,0.00019429382518865168,28,PRCPm,Climate
+leaves_high,hydro_twi_proxy,0.00019121955847367644,29,TWI,Hydrology
+leaves_high,mdist_km,0.00018530480156186968,30,MDIST,Human activity
+leaves_high,aet_mm_slope_2000_2025,0.00018457690021023154,31,AETs,Climate
+leaves_high,terrain_tpi_1km,0.00017236480198334903,32,TPI1,Terrain
+leaves_high,def_mm_slope_2000_2025,0.0001497174525866285,33,CWDs,Climate
+leaves_high,vpd_kpa_slope_2000_2025,0.00014826578262727708,34,VPDs,Climate
+leaves_high,aet_mm_mean_2000_2025,0.0001404355134582147,35,AETm,Climate
+leaves_high,runoff_mm_mean_2000_2025,0.0001299266587011516,36,RUNm,Hydrology
+leaves_high,ssrd_wm2_mean_2000_2025,0.0001276300026802346,37,SRADm,Climate
+leaves_high,pet_mm_mean_2000_2025,0.00011562508007045835,38,PETm,Climate
+leaves_high,runoff_mm_slope_2000_2025,0.00011023931438103318,39,RUNs,Hydrology
+leaves_high,vpd_kpa_mean_2000_2025,0.00010890743578784168,40,VPDm,Climate
+leaves_high,pet_mm_slope_2000_2025,0.00010675506200641394,41,PETs,Climate
+leaves_high,tmean_c_slope_2000_2025,0.00010669395123841241,42,TEMPs,Climate
+leaves_high,def_mm_mean_2000_2025,0.00010429650137666613,43,CWDm,Climate
+leaves_high,tmean_c_mean_2000_2025,0.00010282919538440183,44,TEMPm,Climate
+leaves_high,soil_water_rootzone_mean_2000_2025,0.00010124996333615854,45,SWRm,Hydrology
+leaves_high,soil_water_top_mean_2000_2025,0.00010067845141747966,46,SWTm,Hydrology
+leaves_high,pop_log_change_2000_2020_per_year,8.512981730746105e-05,47,POPs,Human activity
+leaves_high,water_frac_mean_2000_2025,4.6984117943793535e-05,48,WATm,Land cover
+leaves_high,grass_frac_mean_2000_2025,4.034563244204037e-05,49,GRSm,Land cover
+leaves_high,hydro_stream_distance_km,3.0324528779601678e-05,50,SDIST,Hydrology
+leaves_high,mcnt2k,2.2115236788522452e-05,51,MCNT2,Human activity
+leaves_high,mining_disturbance_intensity_2000_2025,1.8231683498015627e-05,52,MDI,Human activity
+leaves_high,water_frac_slope_2000_2025,1.403124952048529e-05,53,WATs,Land cover
+leaves_high,barren_frac_mean_2000_2025,6.835397925897269e-06,54,BARm,Land cover
+leaves_high,shrub_frac_mean_2000_2025,4.8363117457483895e-06,55,SHRm,Land cover
+leaves_high,barren_frac_slope_2000_2025,2.161892325602821e-06,56,BARs,Land cover
+leaves_high,shrub_frac_slope_2000_2025,9.366885365125199e-07,57,SHRs,Land cover
+l2_low,forest_frac_slope_2000_2025,0.0033601373434066772,1,FORs,Land cover
+l2_low,mndwi_mean_2000_2025,0.0012824023142457008,2,MNDWIm,Hydrology
+l2_low,mndwi_slope_2000_2025,0.0012382504064589739,3,MNDWIs,Hydrology
+l2_low,built_frac_slope_2000_2025,0.0011710759717971087,4,BLTs,Land cover
+l2_low,forest_frac_mean_2000_2025,0.0010706729954108596,5,FORm,Land cover
+l2_low,cropland_frac_slope_2000_2025,0.0008493906352669001,6,CRPs,Land cover
+l2_low,cropland_frac_mean_2000_2025,0.0007221077685244381,7,CRPm,Land cover
+l2_low,slope_mean,0.0006962229963392019,8,SLOPE,Terrain
+l2_low,terrain_northness_mean,0.0006135692237876356,9,NORTH,Terrain
+l2_low,ssrd_wm2_slope_2000_2025,0.0005004013073630631,10,SRADs,Climate
+l2_low,grass_frac_slope_2000_2025,0.0004536188789643347,11,GRSs,Land cover
+l2_low,pdsi_slope_2000_2025,0.00043933955021202564,12,PDSIs,Hydrology
+l2_low,elevation_mean,0.0003757356316782534,13,ELEV,Terrain
+l2_low,terrain_tpi_5km,0.0003197805199306458,14,TPI5,Terrain
+l2_low,hydro_hand_m,0.00031626757117919624,15,HAND,Hydrology
+l2_low,pop_log_density_2000,0.00026551130576990545,16,POP,Human activity
+l2_low,ntl_viirs_slope_2014_2025,0.00026385075761936605,17,NTLs,Human activity
+l2_low,soil_water_top_slope_2000_2025,0.0002546480973251164,18,SWTs,Hydrology
+l2_low,mkde3k,0.0002525686868466437,19,MKDE3,Human activity
+l2_low,soil_water_rootzone_slope_2000_2025,0.0002346305118408054,20,SWRs,Hydrology
+l2_low,prcp_mm_slope_2000_2025,0.00023317323939409107,21,PRCPs,Climate
+l2_low,road_dist_km,0.0002298608742421493,22,RDIST,Human activity
+l2_low,built_frac_mean_2000_2025,0.00022632171749137342,23,BLTm,Land cover
+l2_low,terrain_eastness_mean,0.0002236564178019762,24,EAST,Terrain
+l2_low,ntl_viirs_mean_2014_2025,0.0002204515621997416,25,NTLm,Human activity
+l2_low,prcp_mm_mean_2000_2025,0.0002178393624490127,26,PRCPm,Climate
+l2_low,pdsi_mean_2000_2025,0.00020392167789395899,27,PDSIm,Hydrology
+l2_low,aet_mm_slope_2000_2025,0.00019479442562442273,28,AETs,Climate
+l2_low,hydro_twi_proxy,0.0001914092863444239,29,TWI,Hydrology
+l2_low,hydro_log_upstream_area,0.00018704270769376308,30,UPA,Hydrology
+l2_low,mdist_km,0.00018242737860418856,31,MDIST,Human activity
+l2_low,terrain_tpi_1km,0.00016753887757658958,32,TPI1,Terrain
+l2_low,vpd_kpa_slope_2000_2025,0.00015764108684379607,33,VPDs,Climate
+l2_low,def_mm_slope_2000_2025,0.00015386854647658765,34,CWDs,Climate
+l2_low,aet_mm_mean_2000_2025,0.00014874916814733297,35,AETm,Climate
+l2_low,runoff_mm_mean_2000_2025,0.0001351458195131272,36,RUNm,Hydrology
+l2_low,ssrd_wm2_mean_2000_2025,0.00013437394227366894,37,SRADm,Climate
+l2_low,runoff_mm_slope_2000_2025,0.00012727227294817567,38,RUNs,Hydrology
+l2_low,vpd_kpa_mean_2000_2025,0.00012046680058119819,39,VPDm,Climate
+l2_low,pet_mm_mean_2000_2025,0.00011989029007963836,40,PETm,Climate
+l2_low,soil_water_rootzone_mean_2000_2025,0.00011307434760965407,41,SWRm,Hydrology
+l2_low,tmean_c_mean_2000_2025,0.00011288611858617514,42,TEMPm,Climate
+l2_low,soil_water_top_mean_2000_2025,0.00010999471851391718,43,SWTm,Hydrology
+l2_low,pet_mm_slope_2000_2025,0.00010837437002919614,44,PETs,Climate
+l2_low,tmean_c_slope_2000_2025,0.00010755291441455483,45,TEMPs,Climate
+l2_low,def_mm_mean_2000_2025,0.00010211603512289003,46,CWDm,Climate
+l2_low,pop_log_change_2000_2020_per_year,8.629516378277913e-05,47,POPs,Human activity
+l2_low,water_frac_mean_2000_2025,4.842296402784996e-05,48,WATm,Land cover
+l2_low,grass_frac_mean_2000_2025,3.9619775634491816e-05,49,GRSm,Land cover
+l2_low,hydro_stream_distance_km,3.0299768695840612e-05,50,SDIST,Hydrology
+l2_low,mcnt2k,2.1030680727562867e-05,51,MCNT2,Human activity
+l2_low,mining_disturbance_intensity_2000_2025,2.0787050743820146e-05,52,MDI,Human activity
+l2_low,water_frac_slope_2000_2025,1.551022614876274e-05,53,WATs,Land cover
+l2_low,barren_frac_mean_2000_2025,7.5231191658531316e-06,54,BARm,Land cover
+l2_low,shrub_frac_mean_2000_2025,6.489244242402492e-06,55,SHRm,Land cover
+l2_low,barren_frac_slope_2000_2025,2.6744728529592976e-06,56,BARs,Land cover
+l2_low,shrub_frac_slope_2000_2025,8.566152018829598e-07,57,SHRs,Land cover
+l2_high,forest_frac_slope_2000_2025,0.003363643540069461,1,FORs,Land cover
+l2_high,mndwi_mean_2000_2025,0.0012900311267003417,2,MNDWIm,Hydrology
+l2_high,mndwi_slope_2000_2025,0.0012405177112668753,3,MNDWIs,Hydrology
+l2_high,built_frac_slope_2000_2025,0.001168031245470047,4,BLTs,Land cover
+l2_high,forest_frac_mean_2000_2025,0.0010689765913411975,5,FORm,Land cover
+l2_high,cropland_frac_slope_2000_2025,0.0008405865519307554,6,CRPs,Land cover
+l2_high,cropland_frac_mean_2000_2025,0.0007160971290431917,7,CRPm,Land cover
+l2_high,slope_mean,0.0006938007427379489,8,SLOPE,Terrain
+l2_high,terrain_northness_mean,0.0006146405357867479,9,NORTH,Terrain
+l2_high,ssrd_wm2_slope_2000_2025,0.0004926692345179617,10,SRADs,Climate
+l2_high,grass_frac_slope_2000_2025,0.0004516923800110817,11,GRSs,Land cover
+l2_high,pdsi_slope_2000_2025,0.0004336375859566033,12,PDSIs,Hydrology
+l2_high,elevation_mean,0.0003751831245608628,13,ELEV,Terrain
+l2_high,hydro_hand_m,0.0003188028931617737,14,HAND,Hydrology
+l2_high,terrain_tpi_5km,0.00031757005490362644,15,TPI5,Terrain
+l2_high,pop_log_density_2000,0.0002658010635059327,16,POP,Human activity
+l2_high,soil_water_top_slope_2000_2025,0.0002642700565047562,17,SWTs,Hydrology
+l2_high,ntl_viirs_slope_2014_2025,0.000263293826719746,18,NTLs,Human activity
+l2_high,mkde3k,0.00025164042017422616,19,MKDE3,Human activity
+l2_high,soil_water_rootzone_slope_2000_2025,0.00023829042038414627,20,SWRs,Hydrology
+l2_high,road_dist_km,0.00023255559790413827,21,RDIST,Human activity
+l2_high,prcp_mm_slope_2000_2025,0.0002298136823810637,22,PRCPs,Climate
+l2_high,built_frac_mean_2000_2025,0.00022917559545021504,23,BLTm,Land cover
+l2_high,ntl_viirs_mean_2014_2025,0.0002280051849083975,24,NTLm,Human activity
+l2_high,terrain_eastness_mean,0.0002249856770504266,25,EAST,Terrain
+l2_high,pdsi_mean_2000_2025,0.00021266326075419784,26,PDSIm,Hydrology
+l2_high,prcp_mm_mean_2000_2025,0.00020866676641162485,27,PRCPm,Climate
+l2_high,aet_mm_slope_2000_2025,0.00019209376478102058,28,AETs,Climate
+l2_high,hydro_twi_proxy,0.0001917390472954139,29,TWI,Hydrology
+l2_high,hydro_log_upstream_area,0.00018581317272037268,30,UPA,Hydrology
+l2_high,mdist_km,0.0001846401864895597,31,MDIST,Human activity
+l2_high,terrain_tpi_1km,0.00016660943219903857,32,TPI1,Terrain
+l2_high,def_mm_slope_2000_2025,0.00016057590255513787,33,CWDs,Climate
+l2_high,aet_mm_mean_2000_2025,0.00015818439715076238,34,AETm,Climate
+l2_high,vpd_kpa_slope_2000_2025,0.0001473113807151094,35,VPDs,Climate
+l2_high,runoff_mm_mean_2000_2025,0.00014360705972649157,36,RUNm,Hydrology
+l2_high,ssrd_wm2_mean_2000_2025,0.00013333078823052347,37,SRADm,Climate
+l2_high,runoff_mm_slope_2000_2025,0.00012523769692052156,38,RUNs,Hydrology
+l2_high,def_mm_mean_2000_2025,0.00011866396380355582,39,CWDm,Climate
+l2_high,pet_mm_mean_2000_2025,0.00011745137453544885,40,PETm,Climate
+l2_high,pet_mm_slope_2000_2025,0.00011639176227618009,41,PETs,Climate
+l2_high,tmean_c_mean_2000_2025,0.00011501898552523926,42,TEMPm,Climate
+l2_high,soil_water_rootzone_mean_2000_2025,0.0001124943737522699,43,SWRm,Hydrology
+l2_high,vpd_kpa_mean_2000_2025,0.00011007099237758666,44,VPDm,Climate
+l2_high,soil_water_top_mean_2000_2025,0.00010814621055033058,45,SWTm,Hydrology
+l2_high,tmean_c_slope_2000_2025,0.00010624211427057162,46,TEMPs,Climate
+l2_high,pop_log_change_2000_2020_per_year,8.60394720803015e-05,47,POPs,Human activity
+l2_high,water_frac_mean_2000_2025,5.099856934975833e-05,48,WATm,Land cover
+l2_high,grass_frac_mean_2000_2025,3.83782789867837e-05,49,GRSm,Land cover
+l2_high,hydro_stream_distance_km,3.157130777253769e-05,50,SDIST,Hydrology
+l2_high,mcnt2k,2.254635182907805e-05,51,MCNT2,Human activity
+l2_high,mining_disturbance_intensity_2000_2025,2.0618954295059666e-05,52,MDI,Human activity
+l2_high,water_frac_slope_2000_2025,1.5195566447800957e-05,53,WATs,Land cover
+l2_high,barren_frac_mean_2000_2025,6.640170340688201e-06,54,BARm,Land cover
+l2_high,shrub_frac_mean_2000_2025,6.396493517968338e-06,55,SHRm,Land cover
+l2_high,barren_frac_slope_2000_2025,3.316817810627981e-06,56,BARs,Land cover
+l2_high,shrub_frac_slope_2000_2025,6.434295301005477e-07,57,SHRs,Land cover
+lightgbm,forest_frac_slope_2000_2025,0.003833131631836295,1,FORs,Land cover
+lightgbm,mndwi_mean_2000_2025,0.0012922255555167794,2,MNDWIm,Hydrology
+lightgbm,mndwi_slope_2000_2025,0.001236161682754755,3,MNDWIs,Hydrology
+lightgbm,built_frac_slope_2000_2025,0.00115779391489923,4,BLTs,Land cover
+lightgbm,forest_frac_mean_2000_2025,0.0010976755293086171,5,FORm,Land cover
+lightgbm,cropland_frac_mean_2000_2025,0.0006956348661333323,6,CRPm,Land cover
+lightgbm,slope_mean,0.0006738316733390093,7,SLOPE,Terrain
+lightgbm,terrain_northness_mean,0.000623666332103312,8,NORTH,Terrain
+lightgbm,ssrd_wm2_slope_2000_2025,0.000511509773787111,9,SRADs,Climate
+lightgbm,grass_frac_slope_2000_2025,0.00044014613376930356,10,GRSs,Land cover
+lightgbm,pdsi_slope_2000_2025,0.0004387476365081966,11,PDSIs,Hydrology
+lightgbm,cropland_frac_slope_2000_2025,0.0004268359625712037,12,CRPs,Land cover
+lightgbm,elevation_mean,0.00035957773798145354,13,ELEV,Terrain
+lightgbm,terrain_tpi_5km,0.0003291886823717505,14,TPI5,Terrain
+lightgbm,hydro_hand_m,0.000317609024932608,15,HAND,Hydrology
+lightgbm,soil_water_top_slope_2000_2025,0.00028651076718233526,16,SWTs,Hydrology
+lightgbm,pop_log_density_2000,0.0002684133069124073,17,POP,Human activity
+lightgbm,ntl_viirs_slope_2014_2025,0.00025210928288288414,18,NTLs,Human activity
+lightgbm,mkde3k,0.0002486200537532568,19,MKDE3,Human activity
+lightgbm,built_frac_mean_2000_2025,0.00023093778872862458,20,BLTm,Land cover
+lightgbm,terrain_eastness_mean,0.0002302517823409289,21,EAST,Terrain
+lightgbm,prcp_mm_slope_2000_2025,0.00022750227071810514,22,PRCPs,Climate
+lightgbm,ntl_viirs_mean_2014_2025,0.00022464996436610818,23,NTLm,Human activity
+lightgbm,road_dist_km,0.0002241060574306175,24,RDIST,Human activity
+lightgbm,soil_water_rootzone_slope_2000_2025,0.00021779084636364132,25,SWRs,Hydrology
+lightgbm,prcp_mm_mean_2000_2025,0.00020328725804574788,26,PRCPm,Climate
+lightgbm,pdsi_mean_2000_2025,0.00020194303942844272,27,PDSIm,Hydrology
+lightgbm,aet_mm_slope_2000_2025,0.00019151420565322042,28,AETs,Climate
+lightgbm,hydro_twi_proxy,0.00018737203208729625,29,TWI,Hydrology
+lightgbm,mdist_km,0.0001835609582485631,30,MDIST,Human activity
+lightgbm,hydro_log_upstream_area,0.00017261788889300078,31,UPA,Hydrology
+lightgbm,terrain_tpi_1km,0.00016577032511122525,32,TPI1,Terrain
+lightgbm,vpd_kpa_slope_2000_2025,0.0001589825697010383,33,VPDs,Climate
+lightgbm,aet_mm_mean_2000_2025,0.00015551676915492862,34,AETm,Climate
+lightgbm,def_mm_slope_2000_2025,0.00014657829888164997,35,CWDs,Climate
+lightgbm,runoff_mm_mean_2000_2025,0.00014191167429089546,36,RUNm,Hydrology
+lightgbm,ssrd_wm2_mean_2000_2025,0.00013838325685355812,37,SRADm,Climate
+lightgbm,vpd_kpa_mean_2000_2025,0.00012343945854809135,38,VPDm,Climate
+lightgbm,pet_mm_mean_2000_2025,0.00011784441448980942,39,PETm,Climate
+lightgbm,soil_water_rootzone_mean_2000_2025,0.00011725823424058035,40,SWRm,Hydrology
+lightgbm,tmean_c_mean_2000_2025,0.00011674539564410225,41,TEMPm,Climate
+lightgbm,runoff_mm_slope_2000_2025,0.00011290769907645881,42,RUNs,Hydrology
+lightgbm,pet_mm_slope_2000_2025,0.00011083349818363786,43,PETs,Climate
+lightgbm,def_mm_mean_2000_2025,0.0001086275588022545,44,CWDm,Climate
+lightgbm,tmean_c_slope_2000_2025,0.00010519241914153099,45,TEMPs,Climate
+lightgbm,soil_water_top_mean_2000_2025,0.00010216893861070275,46,SWTm,Hydrology
+lightgbm,pop_log_change_2000_2020_per_year,9.777397644938901e-05,47,POPs,Human activity
+lightgbm,water_frac_mean_2000_2025,5.489429895533249e-05,48,WATm,Land cover
+lightgbm,grass_frac_mean_2000_2025,3.8515394408022985e-05,49,GRSm,Land cover
+lightgbm,hydro_stream_distance_km,3.161505810567178e-05,50,SDIST,Hydrology
+lightgbm,water_frac_slope_2000_2025,2.427843355690129e-05,51,WATs,Land cover
+lightgbm,mining_disturbance_intensity_2000_2025,2.3309057723963633e-05,52,MDI,Human activity
+lightgbm,mcnt2k,2.2763510060030967e-05,53,MCNT2,Human activity
+lightgbm,shrub_frac_mean_2000_2025,6.886255960125709e-06,54,SHRm,Land cover
+lightgbm,barren_frac_mean_2000_2025,6.3449551817029715e-06,55,BARm,Land cover
+lightgbm,barren_frac_slope_2000_2025,3.2263772027363302e-06,56,BARs,Land cover
+lightgbm,shrub_frac_slope_2000_2025,1.891297188194585e-06,57,SHRs,Land cover

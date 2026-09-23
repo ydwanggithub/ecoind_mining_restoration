@@ -1,0 +1,9 @@
+method,component,PC1_eigenvector
+covariance_primary,kndvi_mean,0.49682538977564733
+covariance_primary,nbr_mean,0.4965750982903676
+covariance_primary,ndmi_mean,0.49568755969648476
+covariance_primary,bsi_mean,0.5107558585022122
+correlation_secondary,kndvi_mean,0.48808704360576666
+correlation_secondary,nbr_mean,0.5032496394421734
+correlation_secondary,ndmi_mean,0.5016062510059897
+correlation_secondary,bsi_mean,0.5068550159732288

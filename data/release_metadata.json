@@ -33,6 +33,16 @@
     "data/results/xgboost_shap_family_importance.csv": "b977b0af943317af510c7f24d8196900853695ff986ce1ce92877d2fb472303a",
     "data/results/pls_sem_path_inference.csv": "35860873a18671662ec90422cfb7a9be79f25dedfca1d587cc6e3f24da90266d",
     "data/results/dual_constraint_summary.csv": "b7a33d0c94084613ba2a96df93734f91894e603e73c13035bfe76f88fc9a787e",
-    "data/results/predictor_family_summary.csv": "b3811a95732e77f75401170eab6f7befa6c7cd8c8f922eb4078ed4b1073ac9c2"
-  }
+    "data/results/predictor_family_summary.csv": "b3811a95732e77f75401170eab6f7befa6c7cd8c8f922eb4078ed4b1073ac9c2",
+    "data/cv_fold_assignments.csv.gz": "987fdb6a0341a52a8adb441d4456297bf31a20a10f014a4c14a7acc3c13bb99a",
+    "data/results/oof_predictions_deidentified.csv.gz": "66d7bc144dcdaaf780f06f7b6540f99b865f8779a27bb429eecb98f2a20a6a43"
+  },
+  "revision_release_date": "2026-09-23",
+  "cross_validation_designs": [
+    "random_5fold",
+    "spatial_block_10km",
+    "spatial_block_20km"
+  ],
+  "primary_cross_validation_design": "spatial_block_10km",
+  "spatial_block_identifiers_released": false
 }

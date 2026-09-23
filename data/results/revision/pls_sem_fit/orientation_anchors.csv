@@ -1,0 +1,7 @@
+construct,indicator
+Terrain,slope_mean
+Climate,prcp_mm_mean_2000_2025
+Human,mkde3k
+Hydrology,mndwi_mean_2000_2025
+LandCover,forest_frac_slope_2000_2025
+REGAIN,regain_sen_slope_2000_2025

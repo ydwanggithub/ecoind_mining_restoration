@@ -1,0 +1,41 @@
+configuration,family,mean_abs_shap
+baseline,Climate,0.0024139957677107304
+baseline,Human activity,0.001538686436106218
+baseline,Hydrology,0.004864104179432616
+baseline,Land cover,0.007954305491466584
+baseline,Terrain,0.0023925679124658927
+l2_high,Climate,0.0024064851095317863
+l2_high,Human activity,0.0015551410579064395
+l2_high,Hydrology,0.004896821923466632
+l2_high,Land cover,0.007959772359299677
+l2_high,Terrain,0.002392789567238651
+l2_low,Climate,0.002412127607385628
+l2_low,Human activity,0.0015427834605361568
+l2_low,Hydrology,0.004863699050474679
+l2_low,Land cover,0.007974421728135894
+l2_low,Terrain,0.0023965036671143025
+learning_rate_high,Climate,0.0025287246535299346
+learning_rate_high,Human activity,0.001719484764180379
+learning_rate_high,Hydrology,0.005134892591740936
+learning_rate_high,Land cover,0.008087473980822324
+learning_rate_high,Terrain,0.0025718257966218516
+learning_rate_low,Climate,0.002311753763933666
+learning_rate_low,Human activity,0.0013409488019533455
+learning_rate_low,Hydrology,0.0045766210605506785
+learning_rate_low,Land cover,0.007852176818971657
+learning_rate_low,Terrain,0.0021964729676255956
+leaves_high,Climate,0.002266425726702437
+leaves_high,Human activity,0.0015060751866258215
+leaves_high,Hydrology,0.00466832499296288
+leaves_high,Land cover,0.007763184498060127
+leaves_high,Terrain,0.002341192390304059
+leaves_low,Climate,0.0025571546866558492
+leaves_low,Human activity,0.0015132555272430182
+leaves_low,Hydrology,0.004963225841493113
+leaves_low,Land cover,0.00816784736309728
+leaves_low,Terrain,0.0023896974162198603
+lightgbm,Climate,0.002415957147604786
+lightgbm,Human activity,0.0015453061678272206
+lightgbm,Hydrology,0.0048568400779913645
+lightgbm,Land cover,0.008018192839699623
+lightgbm,Terrain,0.0023822865332476795
