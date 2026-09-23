@@ -2,8 +2,9 @@
 
 These tables support the analyses added or updated in the revised manuscript.
 All values are aggregate summaries, model diagnostics or sensitivity results.
-Cell identifiers, coordinates, spatial block identifiers and administrative
-labels are not included.
+Cell identifiers, coordinates and spatial block identifiers are not included.
+The Fig. 5 summaries for the four focal landscapes use the landscape names
+shown in the manuscript; county-level tables are not included.
 
 | Folder | Contents |
 |---|---|
@@ -21,7 +22,7 @@ labels are not included.
 | `endpoint_sensitivity/` | Monitoring class shares and transitions when the 2025 endpoint is replaced by the 2023-2025 mean |
 | `landscape_status_and_distance/` | ECI by trajectory and status class, locally dominant groups by status class, and cumulative distance neighborhoods |
 | `empirical_boundaries/` | Point estimates, block bootstrap turning points, pointwise curve intervals and bin number sensitivity |
-| `figure_and_table_sources/` | Source values for PLS-SEM effects and weights, status summaries, response surface contrasts, and figure panels without administrative labels |
+| `figure_and_table_sources/` | Source values for PLS-SEM effects and weights, status summaries, response surface contrasts, and panels of Figs. 5, 11 and 13 |
 
 Out-of-fold predictions for all four tree models under the three
 cross-validation designs are provided separately in
