@@ -37,7 +37,7 @@
     "data/cv_fold_assignments.csv.gz": "987fdb6a0341a52a8adb441d4456297bf31a20a10f014a4c14a7acc3c13bb99a",
     "data/results/oof_predictions_deidentified.csv.gz": "66d7bc144dcdaaf780f06f7b6540f99b865f8779a27bb429eecb98f2a20a6a43"
   },
-  "revision_release_date": "2026-09-23",
+  "revision_release_date": "2026-09-26",
   "cross_validation_designs": [
     "random_5fold",
     "spatial_block_10km",

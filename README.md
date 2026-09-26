@@ -2,7 +2,7 @@
 
 This repository accompanies the manuscript:
 
-> **Spatial heterogeneity and driving mechanisms of ecological recovery across the ionic rare earth mining landscapes of Ganzhou in southern China from 2000 to 2025**
+> **Spatial heterogeneity and potential drivers of ecological recovery across the ionic rare earth mining landscapes of Ganzhou in southern China from 2000 to 2025**
 
 The study follows ecological condition around 401 officially registered ionic
 rare earth mineral sites in Ganzhou, southern China, using annual Landsat
@@ -33,7 +33,7 @@ revised *Ecological Indicators* manuscript.
    cover and human activity are screened without using the response. Fifty
    seven predictors are retained.
 6. XGBoost, LightGBM, CatBoost and Random Forest are evaluated with fivefold
-   cross validation in which whole 10 km spatial blocks are withheld. The
+   cross validation in which whole 10 km spatial blocks are held out. The
    20 km block design and random folds serve as comparisons. Exact tree SHAP
    contributions are calculated only for observations in each test fold.
 7. PLS-SEM, with whole-block bootstrap intervals, and empirical quantile
@@ -105,8 +105,7 @@ Project specific Earth Engine identifiers are intentionally absent. The
 Landsat extraction template reads the Earth Engine project and analysis grid
 asset from environment variables supplied by the user. Figure rendering code
 is outside the scope of this release. The `figures` directory contains the
-figures of the originally submitted manuscript; the revised figures will be
-added once they are finalized.
+figures of the revised manuscript.
 
 ## Quick start
 

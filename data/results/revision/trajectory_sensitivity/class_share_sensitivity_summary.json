@@ -1,0 +1,19 @@
+{
+  "note": "Class shares in percent; labels in each alternative classification matched to the main classes by maximum overlap.",
+  "single_year_interpolation": {
+    "max_share_change_pp": 3.242494709063831,
+    "year_with_max_change": 2024,
+    "median_of_yearly_max_share_change_pp": 0.6727980560708593,
+    "changed_label_fraction_min": 0.026128079847412,
+    "changed_label_fraction_max": 0.148773286651164,
+    "declining_classes_share_range_pct": [
+      17.39346275442217,
+      22.444020588926907
+    ]
+  },
+  "landsat7_versus_mixed_record_2000_2023": {
+    "n_cells_classified_in_both": 38270,
+    "changed_label_fraction": 0.35764306245100597,
+    "max_share_change_pp": 7.065586621374443
+  }
+}

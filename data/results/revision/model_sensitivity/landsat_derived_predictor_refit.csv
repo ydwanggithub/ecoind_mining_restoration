@@ -1,0 +1,4 @@
+predictor_set,n_predictors,pooled_r2_spatial_block_10km,pooled_rmse_spatial_block_10km
+all predictors,57,0.6116449385273015,0.007752863798659718
+predictors not derived from Landsat,40,0.2991427243944905,0.010415076460555154
+Landsat-derived predictors only,17,0.5001424122249553,0.008795708219499553
