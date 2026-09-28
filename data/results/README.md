@@ -20,7 +20,10 @@ site locations, Earth Engine asset names, or account information.
   for the prespecified pathway model in the original release. The whole-block
   bootstrap intervals used in the revision are in `revision/pls_sem/`.
 - `dual_constraint_summary.csv` reports the empirical lower and upper boundary
-  fits.
+  fits with the turning point inference of the original release. The
+  whole-block bootstrap intervals and turning point stability used in the
+  revision are in
+  `revision/empirical_boundaries/block_bootstrap_turning_summary.csv`.
 - `predictor_family_summary.csv` records the candidate and retained predictor
   counts by group.
 - `oof_predictions_deidentified.csv.gz` gives the observed response and the
