@@ -23,7 +23,9 @@ site locations, Earth Engine asset names, or account information.
   fits with the turning point inference of the original release. The
   whole-block bootstrap intervals and turning point stability used in the
   revision are in
-  `revision/empirical_boundaries/block_bootstrap_turning_summary.csv`.
+  `revision/empirical_boundaries/block_bootstrap_turning_summary.csv`, and the
+  same summary obtained with the released block labels is in
+  `revision/empirical_boundaries/public_label_bootstrap_summary.csv`.
 - `predictor_family_summary.csv` records the candidate and retained predictor
   counts by group.
 - `oof_predictions_deidentified.csv.gz` gives the observed response and the

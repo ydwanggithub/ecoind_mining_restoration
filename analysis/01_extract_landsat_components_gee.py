@@ -1,5 +1,12 @@
 """Prepare annual Landsat spectral components in Google Earth Engine.
 
+The processing order follows the export used for the manuscript. Collection 2
+Level-2 scenes are masked with the QA_PIXEL cloud and cloud shadow bits (3 and
+4), reflectance is scaled and band names are matched across sensors. The
+scaled reflectance of each calendar year is reduced to a median composite, and
+the spectral indices are calculated from that composite before averaging
+within each grid cell.
+
 The template contains no account, project, or asset identifiers. Supply those
 values through environment variables:
 
@@ -33,14 +40,8 @@ def require_environment(name: str) -> str:
 
 def mask_landsat(image: ee.Image) -> ee.Image:
     qa = image.select("QA_PIXEL")
-    clear = (
-        qa.bitwiseAnd(1 << 1).eq(0)
-        .And(qa.bitwiseAnd(1 << 2).eq(0))
-        .And(qa.bitwiseAnd(1 << 3).eq(0))
-        .And(qa.bitwiseAnd(1 << 4).eq(0))
-    )
-    unsaturated = image.select("QA_RADSAT").eq(0)
-    return image.updateMask(clear).updateMask(unsaturated)
+    clear = qa.bitwiseAnd(1 << 3).eq(0).And(qa.bitwiseAnd(1 << 4).eq(0))
+    return image.updateMask(clear)
 
 
 def prepare_tm_etm(image: ee.Image) -> ee.Image:
@@ -50,7 +51,7 @@ def prepare_tm_etm(image: ee.Image) -> ee.Image:
         .add(OFFSET)
         .rename(["blue", "red", "nir", "swir1", "swir2"])
     )
-    return add_indices(scaled).copyProperties(image, ["system:time_start"])
+    return scaled.copyProperties(image, ["system:time_start"])
 
 
 def prepare_oli(image: ee.Image) -> ee.Image:
@@ -60,7 +61,7 @@ def prepare_oli(image: ee.Image) -> ee.Image:
         .add(OFFSET)
         .rename(["blue", "red", "nir", "swir1", "swir2"])
     )
-    return add_indices(scaled).copyProperties(image, ["system:time_start"])
+    return scaled.copyProperties(image, ["system:time_start"])
 
 
 def add_indices(image: ee.Image) -> ee.Image:
@@ -103,7 +104,10 @@ def landsat_collection(roi: ee.Geometry) -> ee.ImageCollection:
 def annual_composites(images: ee.ImageCollection) -> ee.ImageCollection:
     def one_year(year: ee.Number) -> ee.Image:
         year = ee.Number(year)
-        annual = images.filter(ee.Filter.calendarRange(year, year, "year")).median()
+        reflectance = images.filter(
+            ee.Filter.calendarRange(year, year, "year")
+        ).median()
+        annual = add_indices(reflectance)
         return annual.set(
             {
                 "year": year,
@@ -123,7 +127,8 @@ def export_table(annual: ee.ImageCollection, grid: ee.FeatureCollection) -> ee.b
             collection=grid,
             reducer=ee.Reducer.mean(),
             scale=30,
-            tileScale=4,
+            crs="EPSG:4326",
+            tileScale=8,
         ).map(lambda feature: feature.set("year", year))
 
     per_year = ee.FeatureCollection(

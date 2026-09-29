@@ -2,7 +2,8 @@
 
 These tables support the analyses added or updated in the revised manuscript.
 All values are aggregate summaries, model diagnostics or sensitivity results.
-Cell identifiers, coordinates and spatial block identifiers are not included.
+Cell identifiers, coordinates and the original spatial block identifiers are
+not included.
 The Fig. 5 summaries for the four focal landscapes use the landscape names
 shown in the manuscript; county-level tables are not included.
 
@@ -21,7 +22,7 @@ shown in the manuscript; county-level tables are not included.
 | `climate_context/` | Annual regional climate anomalies from ERA5-Land |
 | `endpoint_sensitivity/` | Monitoring class shares and transitions when the 2025 endpoint is replaced by the 2023-2025 mean, and class shares for high position thresholds from 0.65 to 0.85 |
 | `landscape_status_and_distance/` | ECI by trajectory and status class, locally dominant groups by status class, and cumulative distance neighborhoods |
-| `empirical_boundaries/` | Point estimates, block bootstrap turning points, pointwise curve intervals and bin number sensitivity |
+| `empirical_boundaries/` | Point estimates, block bootstrap turning points, pointwise curve intervals and bin number sensitivity; `public_label_bootstrap_summary.csv` repeats the turning point summary with the randomly assigned block labels released in `data/cv_fold_assignments.csv.gz` |
 | `figure_and_table_sources/` | Source values for PLS-SEM effects and weights, status summaries, response surface contrasts, and panels of Figs. 5, 11 and 13 |
 | `land_cover_closure/` | Slopes and correlations of the other six land cover trends on forest cover trend, and checks that the seven land cover fractions sum to one |
 | `partial_dependence_checks/` | Observed support and retained range of the six two-predictor partial dependence surfaces, and the four surfaces with forest cover trend recomputed along the average joint change of the other six land cover trends |

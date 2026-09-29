@@ -84,14 +84,17 @@ tests/
 `model_matrix_full_deidentified.csv.gz` contains all 38,273 observations used
 in the model analysis. It includes the REGAIN trend response and the 59
 candidate predictors recorded in `predictor_ledger.csv`. Internal cell
-identifiers, coordinates, administrative labels, spatial block identifiers,
-asset paths and registered site locations have been removed. Anonymous
+identifiers, coordinates, administrative labels, the original spatial block
+identifiers, asset paths and registered site locations have been removed. Anonymous
 `sample_id` values preserve one to one row identity without disclosing
 location.
 
 `cv_fold_assignments.csv.gz` gives, for each `sample_id`, the fold used in the
-random fivefold, 10 km block and 20 km block designs. The block identifiers
-themselves are not released. `oof_predictions_deidentified.csv.gz` contains
+random fivefold, 10 km block and 20 km block designs. The original block
+identifiers encode grid position and are not released. For the 10 km design,
+`block_10km_label` instead gives each of the 237 blocks a label (B001-B237)
+assigned in random order, so that whole blocks can be resampled without
+disclosing where they lie. `oof_predictions_deidentified.csv.gz` contains
 the observed response and the out-of-fold predictions of all four tree models
 under the three designs. `results/revision/` holds the tables for the
 analyses added in the revision; its README lists the contents of each folder.
@@ -102,8 +105,12 @@ that can be viewed directly on GitHub. The annual spectral sample supports a
 small reconstruction of ECI and annual REGAIN.
 
 Project specific Earth Engine identifiers are intentionally absent. The
-Landsat extraction template reads the Earth Engine project and analysis grid
-asset from environment variables supplied by the user. Figure rendering code
+Landsat extraction template follows the export used for the manuscript: scenes
+are masked with the QA_PIXEL cloud and cloud shadow bits (3 and 4),
+reflectance is scaled, a January-December median composite is formed for each
+year, and kNDVI, NBR, NDMI and BSI are calculated from that composite. The
+template reads the Earth Engine project and analysis grid asset from
+environment variables supplied by the user. Figure rendering code
 is outside the scope of this release. The `figures` directory contains the
 figures of the revised manuscript.
 
@@ -147,6 +154,30 @@ hydrology (25.4%). Replacing `spatial_block_10km` with `spatial_block_20km` or
 Omitting `--cv-design` uses the seeded shuffled fivefold partition of the
 original release (`R2 = 0.710556`). The smaller example is intended for code
 inspection and a faster trial run.
+
+To rerun the empirical boundaries with the complete matrix and 1,000
+whole-block resamples, use:
+
+```bash
+python analysis/04_empirical_quantile_boundaries.py \
+  --data data/model_matrix_full_deidentified.csv.gz \
+  --bootstrap 1000 \
+  --workers 4 \
+  --output-dir outputs/boundaries_full
+```
+
+The bin percentiles, polynomial fits and turning point estimates match
+`results/revision/empirical_boundaries/reproduced_point_estimates.csv`
+exactly, for example 13.57 degrees for the upper boundary along terrain slope.
+Blocks are drawn in the order of their labels, and because the released labels
+were assigned at random, the resamples differ from those of the manuscript
+analysis. The bootstrap intervals therefore agree within resampling error
+rather than exactly. Along terrain slope, the interval for the upper turning
+point is 12.78-16.36 degrees with the released labels and 12.75-16.49 degrees
+in the manuscript analysis, and the lower turning point occurs in 48.9% and
+50.8% of resamples, respectively. Every turning point receives the same
+stability decision in both runs. The summary obtained with the released labels
+is `results/revision/empirical_boundaries/public_label_bootstrap_summary.csv`.
 
 The Earth Engine template is optional:
 

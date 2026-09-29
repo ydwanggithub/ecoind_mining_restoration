@@ -3,6 +3,7 @@
 from __future__ import annotations
 
 import hashlib
+import importlib.util
 import json
 import re
 import subprocess
@@ -160,6 +161,13 @@ def check_revision_files() -> None:
     ):
         if set(folds[column].unique()) != {1, 2, 3, 4, 5}:
             fail(f"{column} must contain folds 1 to 5.")
+    labels = folds["block_10km_label"]
+    if not labels.str.fullmatch(r"B\d{3}").all():
+        fail("Block labels must be anonymous labels such as B001.")
+    if labels.nunique() != 237:
+        fail("The 10 km design must contain 237 block labels.")
+    if folds.groupby("block_10km_label")["fold_spatial_block_10km"].nunique().max() != 1:
+        fail("Each 10 km block label must fall within a single fold.")
     if np.nanmax(
         np.abs(oof["observed"] - full_model["regain_sen_slope_2000_2025"])
     ) > 0:
@@ -227,11 +235,40 @@ def check_eci_reconstruction() -> None:
         fail("REGAIN reconstruction differs from the released expected values.")
 
 
+def check_boundary_estimates() -> None:
+    path = ROOT / "analysis" / "04_empirical_quantile_boundaries.py"
+    spec = importlib.util.spec_from_file_location("quantile_boundaries", path)
+    module = importlib.util.module_from_spec(spec)
+    sys.modules[spec.name] = module
+    spec.loader.exec_module(module)
+    frame = module.load_inputs(
+        ROOT / "data" / "model_matrix_full_deidentified.csv.gz",
+        ROOT / "data" / "cv_fold_assignments.csv.gz",
+    )
+    reference = pd.read_csv(
+        ROOT / "data" / "results" / "revision" / "empirical_boundaries"
+        / "reproduced_point_estimates.csv",
+        index_col=0,
+    )
+    y = frame[module.TARGET].to_numpy(dtype=float)
+    for feature in module.FEATURES:
+        record, _ = module.point_estimates(
+            feature, frame[feature].to_numpy(dtype=float), y, 60, 15
+        )
+        for field, expected in reference.loc[feature].items():
+            value = record[field]
+            if pd.isna(expected) and pd.isna(value):
+                continue
+            if abs(float(value) - float(expected)) > 1e-8:
+                fail(f"Boundary estimate differs for {feature}: {field}.")
+
+
 def main() -> None:
     check_data()
     check_revision_files()
     check_private_strings()
     check_eci_reconstruction()
+    check_boundary_estimates()
     print("Release verification passed.")
 
 
