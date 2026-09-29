@@ -235,7 +235,23 @@ def check_eci_reconstruction() -> None:
         fail("REGAIN reconstruction differs from the released expected values.")
 
 
+def estimates_match(value: float, expected: float, tolerance: float = 1e-8) -> bool:
+    """True when both values are missing, or both are present and agree."""
+    if pd.isna(value) or pd.isna(expected):
+        return bool(pd.isna(value) and pd.isna(expected))
+    return abs(float(value) - float(expected)) <= tolerance
+
+
 def check_boundary_estimates() -> None:
+    for value, expected, should_match in (
+        (1.0, 1.0, True),
+        (1.0, 1.1, False),
+        (np.nan, 1.0, False),
+        (1.0, np.nan, False),
+        (np.nan, np.nan, True),
+    ):
+        if estimates_match(value, expected) != should_match:
+            fail("The boundary comparison mishandles missing values.")
     path = ROOT / "analysis" / "04_empirical_quantile_boundaries.py"
     spec = importlib.util.spec_from_file_location("quantile_boundaries", path)
     module = importlib.util.module_from_spec(spec)
@@ -256,10 +272,7 @@ def check_boundary_estimates() -> None:
             feature, frame[feature].to_numpy(dtype=float), y, 60, 15
         )
         for field, expected in reference.loc[feature].items():
-            value = record[field]
-            if pd.isna(expected) and pd.isna(value):
-                continue
-            if abs(float(value) - float(expected)) > 1e-8:
+            if not estimates_match(record[field], expected):
                 fail(f"Boundary estimate differs for {feature}: {field}.")
 
 
