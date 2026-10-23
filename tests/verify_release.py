@@ -172,14 +172,15 @@ def check_revision_files() -> None:
         np.abs(oof["observed"] - full_model["regain_sen_slope_2000_2025"])
     ) > 0:
         fail("Out-of-fold observed values differ from the model response.")
-    revision = ROOT / "data" / "results" / "revision"
-    if not (revision / "README.md").is_file():
-        fail("Revision result tables are missing their README.")
-    for path in revision.rglob("*.csv"):
-        header = set(pd.read_csv(path, nrows=0).columns)
-        forbidden = FORBIDDEN_COLUMNS.intersection(header)
-        if forbidden:
-            fail(f"{path.relative_to(ROOT)} contains private columns: {forbidden}")
+    for folder in ("revision", "revision2"):
+        revision = ROOT / "data" / "results" / folder
+        if not (revision / "README.md").is_file():
+            fail(f"Result tables in {folder} are missing their README.")
+        for path in revision.rglob("*.csv"):
+            header = set(pd.read_csv(path, nrows=0).columns)
+            forbidden = FORBIDDEN_COLUMNS.intersection(header)
+            if forbidden:
+                fail(f"{path.relative_to(ROOT)} contains private columns: {forbidden}")
 
 
 def check_private_strings() -> None:

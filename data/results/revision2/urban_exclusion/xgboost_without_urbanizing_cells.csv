@@ -1,0 +1,4 @@
+variant,n_cells,pooled_r2,share_Climate,share_Human activity,share_Hydrology,share_Land cover,share_Terrain,top5_predictors,pooled_r2_without_land_cover,r2_drop_without_land_cover
+all cells,38273,0.611990966163375,0.126,0.0803,0.2538,0.4151,0.1248,forest_frac_slope_2000_2025; mndwi_mean_2000_2025; mndwi_slope_2000_2025; built_frac_slope_2000_2025; forest_frac_mean_2000_2025,0.37102081069117365,0.24097015547220135
+without fastest built-up expansion (top 5%),36359,0.5376676276492973,0.1404,0.0862,0.2795,0.3565,0.1374,forest_frac_slope_2000_2025; mndwi_mean_2000_2025; mndwi_slope_2000_2025; cropland_frac_slope_2000_2025; forest_frac_mean_2000_2025,0.2696112856522792,0.2680563419970181
+without top 5% and Zhanggong,35916,0.5321608025983016,0.1408,0.0862,0.2806,0.3556,0.1368,forest_frac_slope_2000_2025; mndwi_mean_2000_2025; mndwi_slope_2000_2025; cropland_frac_slope_2000_2025; forest_frac_mean_2000_2025,0.2655385084013856,0.26662229419691597

@@ -14,7 +14,8 @@ The repository provides a privacy screened implementation of the main
 analytical sequence, the complete deidentified model matrix, the fold
 assignments and out-of-fold predictions used for model evaluation, a smaller
 working example, and aggregate result tables. This release corresponds to the
-revised *Ecological Indicators* manuscript.
+second revision of the *Ecological Indicators*
+manuscript.
 
 ## Analytical sequence
 
@@ -73,9 +74,10 @@ data/
     dual_constraint_summary.csv
     predictor_family_summary.csv
     revision/            (tables for the analyses added in the revision)
+    revision2/           (tables for the analyses added in the second revision)
 
 figures/
-  Fig01_study_area.png ... Fig13_recovery_management_contexts.png
+  Fig01_study_area.png ... Fig14_footprint_check.png
 
 tests/
   verify_release.py
@@ -96,8 +98,9 @@ identifiers encode grid position and are not released. For the 10 km design,
 assigned in random order, so that whole blocks can be resampled without
 disclosing where they lie. `oof_predictions_deidentified.csv.gz` contains
 the observed response and the out-of-fold predictions of all four tree models
-under the three designs. `results/revision/` holds the tables for the
-analyses added in the revision; its README lists the contents of each folder.
+under the three designs. `results/revision/` and `results/revision2/` hold the
+tables for the analyses added in the first and second revisions; each README
+lists the contents of its folders.
 
 `model_matrix_sample.csv.gz` contains 2,500 rows for a quicker trial run.
 `model_matrix_preview.csv` contains 50 of those rows in an uncompressed form

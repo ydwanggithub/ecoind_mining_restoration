@@ -1,0 +1,13 @@
+feature,median,min,max
+forest_frac_slope_2000_2025,1.0,1,1
+mndwi_mean_2000_2025,2.0,2,2
+mndwi_slope_2000_2025,3.0,3,3
+built_frac_slope_2000_2025,4.0,4,4
+forest_frac_mean_2000_2025,5.0,5,5
+cropland_frac_slope_2000_2025,6.0,6,6
+cropland_frac_mean_2000_2025,7.0,7,8
+slope_mean,8.0,7,8
+terrain_northness_mean,9.0,9,9
+ssrd_wm2_slope_2000_2025,10.0,10,10
+grass_frac_slope_2000_2025,11.5,11,12
+pdsi_slope_2000_2025,11.5,11,12

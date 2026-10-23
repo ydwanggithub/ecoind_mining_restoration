@@ -1,0 +1,31 @@
+domain,test,description,n,pearson_r,pearson_p,spearman_rho,spearman_p
+ROI5,dECI_vs_prcp_mm_mean_anom_t,Year-to-year change in ECI vs precipitation anomaly,25,0.3905291054035674,0.0535923267585813,0.3730769230769231,0.0662325559400526
+ROI5,dECI_vs_prcp_mm_mean_anom_t-1,Year-to-year change in ECI vs precipitation anomaly in the previous year,25,-0.3021192732976369,0.1421549638154309,-0.3384615384615385,0.0979393279366574
+ROI5,dECI_vs_dprcp_mm_mean_t,Year-to-year change in ECI vs year-to-year change in precipitation,25,0.456408580217264,0.0218310267610999,0.483076923076923,0.0144394009730327
+ROI5,detrendedECI_vs_prcp_mm_mean_anom_t,Detrended ECI vs precipitation anomaly,26,0.4207052964254179,0.0323436194782057,0.3989743589743589,0.0434820375524984
+ROI5,detrendedECI_vs_prcp_mm_mean_anom_t-1,Detrended ECI vs precipitation anomaly in the previous year,25,0.0646741875760409,0.7587389521190069,0.0784615384615384,0.7092983704196518
+ROI5,dECI_vs_tmean_c_mean_anom_t,Year-to-year change in ECI vs mean temperature anomaly,25,-0.3229041044740459,0.1154007210520148,-0.3407692307692307,0.0955270606558351
+ROI5,dECI_vs_tmean_c_mean_anom_t-1,Year-to-year change in ECI vs mean temperature anomaly in the previous year,25,-0.0106950261889549,0.959533757581599,0.003076923076923,0.988353722886774
+ROI5,dECI_vs_dtmean_c_mean_t,Year-to-year change in ECI vs year-to-year change in mean temperature,25,-0.2928349803285072,0.1554394859402092,-0.2930769230769231,0.1550825300069216
+ROI5,detrendedECI_vs_tmean_c_mean_anom_t,Detrended ECI vs mean temperature anomaly,26,-0.1602426011333549,0.4342331138742465,-0.2136752136752136,0.2945852517797206
+ROI5,detrendedECI_vs_tmean_c_mean_anom_t-1,Detrended ECI vs mean temperature anomaly in the previous year,25,-0.1426073288281823,0.4964915901952245,-0.2353846153846154,0.257351024312777
+ROI5,dECI_vs_def_mm_mean_anom_t,Year-to-year change in ECI vs climatic water deficit anomaly,25,-0.3082771130410446,0.1338052593434996,-0.3138461538461538,0.1265639797711209
+ROI5,dECI_vs_def_mm_mean_anom_t-1,Year-to-year change in ECI vs climatic water deficit anomaly in the previous year,25,0.2591311878285337,0.2109993110341075,0.243076923076923,0.2416691122326483
+ROI5,dECI_vs_ddef_mm_mean_t,Year-to-year change in ECI vs year-to-year change in climatic water deficit,25,-0.4162866652090852,0.0384621406477239,-0.3946153846153846,0.0509241706846252
+ROI5,detrendedECI_vs_def_mm_mean_anom_t,Detrended ECI vs climatic water deficit anomaly,26,-0.5208351224000634,0.0063703438955985,-0.5165811965811965,0.0068940489627998
+ROI5,detrendedECI_vs_def_mm_mean_anom_t-1,Detrended ECI vs climatic water deficit anomaly in the previous year,25,-0.2173474708844338,0.2966508183716602,-0.2638461538461538,0.2025154716206569
+BG15,dECI_vs_prcp_mm_mean_anom_t,Year-to-year change in ECI vs precipitation anomaly,25,0.3371344360076509,0.0993469669039211,0.3046153846153846,0.1387265498307697
+BG15,dECI_vs_prcp_mm_mean_anom_t-1,Year-to-year change in ECI vs precipitation anomaly in the previous year,25,-0.2962348423366139,0.1504765620220293,-0.3476923076923077,0.0885563469998129
+BG15,dECI_vs_dprcp_mm_mean_t,Year-to-year change in ECI vs year-to-year change in precipitation,25,0.41413288619989,0.0395800639600377,0.43,0.0319184105924664
+BG15,detrendedECI_vs_prcp_mm_mean_anom_t,Detrended ECI vs precipitation anomaly,26,0.3913787880758937,0.0480213763775633,0.4105982905982905,0.0371988683197541
+BG15,detrendedECI_vs_prcp_mm_mean_anom_t-1,Detrended ECI vs precipitation anomaly in the previous year,25,0.0351288202621734,0.8676038935911871,0.0376923076923076,0.8580349461734569
+BG15,dECI_vs_tmean_c_mean_anom_t,Year-to-year change in ECI vs mean temperature anomaly,25,-0.3303477984406213,0.106781771107077,-0.3007692307692307,0.1440343357090723
+BG15,dECI_vs_tmean_c_mean_anom_t-1,Year-to-year change in ECI vs mean temperature anomaly in the previous year,25,-0.0223163571375849,0.9156759254479572,0.053076923076923,0.8010601829120341
+BG15,dECI_vs_dtmean_c_mean_t,Year-to-year change in ECI vs year-to-year change in mean temperature,25,-0.2887263689841581,0.16159028991507,-0.3184615384615384,0.1207818751689484
+BG15,detrendedECI_vs_tmean_c_mean_anom_t,Detrended ECI vs mean temperature anomaly,26,-0.1807667967509748,0.3768508141845033,-0.1931623931623931,0.3444323452041342
+BG15,detrendedECI_vs_tmean_c_mean_anom_t-1,Detrended ECI vs mean temperature anomaly in the previous year,25,-0.1666016409691395,0.4260625593315845,-0.1953846153846153,0.34928733392328
+BG15,dECI_vs_def_mm_mean_anom_t,Year-to-year change in ECI vs climatic water deficit anomaly,25,-0.2675764417495814,0.1959699309556586,-0.2238461538461538,0.2820821102410566
+BG15,dECI_vs_def_mm_mean_anom_t-1,Year-to-year change in ECI vs climatic water deficit anomaly in the previous year,25,0.2564711600138438,0.2158898957075494,0.2938461538461538,0.1539514856063786
+BG15,dECI_vs_ddef_mm_mean_t,Year-to-year change in ECI vs year-to-year change in climatic water deficit,25,-0.3797299840758332,0.0611688612321303,-0.3353846153846154,0.1012259201788499
+BG15,detrendedECI_vs_def_mm_mean_anom_t,Detrended ECI vs climatic water deficit anomaly,26,-0.487548395587583,0.0115227198263636,-0.4919658119658119,0.0106860339252615
+BG15,detrendedECI_vs_def_mm_mean_anom_t-1,Detrended ECI vs climatic water deficit anomaly in the previous year,25,-0.1789390773332564,0.3920925827473983,-0.1653846153846153,0.4294979277707976

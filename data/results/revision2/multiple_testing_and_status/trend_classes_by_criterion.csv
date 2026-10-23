@@ -1,0 +1,13 @@
+criterion,trend_class,cells,percent
+"Hamed-Rao, per-cell p < 0.05",Significant improvement,28214,73.7178
+"Hamed-Rao, per-cell p < 0.05",No significant directional trend,9440,24.6649
+"Hamed-Rao, per-cell p < 0.05",Significant decline,562,1.4684
+"Hamed-Rao, per-cell p < 0.05",Unevaluable variance,57,0.1489
+"Benjamini-Hochberg, q < 0.05",Significant improvement,27304,71.3401
+"Benjamini-Hochberg, q < 0.05",No significant directional trend,10410,27.1993
+"Benjamini-Hochberg, q < 0.05",Significant decline,502,1.3116
+"Benjamini-Hochberg, q < 0.05",Unevaluable variance,57,0.1489
+"Benjamini-Yekutieli, q < 0.05",Significant improvement,19294,50.4115
+"Benjamini-Yekutieli, q < 0.05",No significant directional trend,18720,48.9118
+"Benjamini-Yekutieli, q < 0.05",Significant decline,202,0.5278
+"Benjamini-Yekutieli, q < 0.05",Unevaluable variance,57,0.1489
