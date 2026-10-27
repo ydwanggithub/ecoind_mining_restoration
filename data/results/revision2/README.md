@@ -13,7 +13,7 @@ manuscript and its Supplementary Material.
 | `cumulative_neighborhoods/` | Trend shares, recovery status, XGBoost performance and land cover attribution within 1, 2, 3 and 5 km of the sites and for all ROI5 cells | Table S6 |
 | `footprint_check/` | Group medians with bootstrap intervals by the share of each cell covered by mapped footprints, and the Lingbei mining area compared with ROI5 | Table S18 |
 | `bright_bare_exposure/` | ECI, REGAIN and the REGAIN slope for ROI5 cells without bright bare detections and for the quartiles of detection frequency | Fig. 14j; Table S18 |
-| `multiple_testing_and_status/` | Trend classes under the per-cell, Benjamini-Hochberg and Benjamini-Yekutieli criteria; recovery status shares in 12 combinations of endpoint, high position threshold and trend criterion; label changes relative to the primary specification | Tables S10 and S13 |
+| `multiple_testing_and_status/` | Trend classes under the per-cell, Benjamini-Hochberg and Benjamini-Yekutieli criteria; recovery status shares in 12 combinations of endpoint, high position threshold and trend criterion; label changes relative to the primary specification; agreement of each cell's label across the 12 combinations, by primary class and as counts of cells | Tables S10 and S13; Fig. S4 |
 | `attribution_stability/` | XGBoost performance, group shares and feature ranks under ten random assignments of the 10 km blocks to folds, and SHAP importance of the 40 predictors not derived from Landsat | Table S14 |
 | `urban_exclusion/` | PLS-SEM effects and total associations, and XGBoost performance and group shares, without the 5% of cells with the fastest built-up fraction trend, without Zhanggong, or without both | Tables S5 and S14 |
 | `spatial_dependence/` | XGBoost under 10 km block validation with 2 km and 5 km buffers, and the correlation of the response and of XGBoost residuals by distance | Table S15 |
@@ -28,7 +28,10 @@ Notes on the tables:
   2000-2025 mean. In `cell_eci_change_2025_vs_climate_anomaly.csv`, the change
   in ECI of each cell from 2024 to 2025 is compared with its 2025 anomalies
   relative to its own 2000-2024 mean; the quintile column lists the median
-  change from the lowest to the highest anomaly quintile.
+  change from the lowest to the highest anomaly quintile. Because neighboring cells share the
+  same 0.1 degree climate grid, these coefficients are descriptive and no p values are given.
+  The interannual correlations are exploratory, and their p values are not adjusted for the
+  several climate variables and lags examined.
 - In `distance_from_sites/eci_by_distance_band.csv`, `raw_` columns are
   medians and quartiles of all cells in each band. `std_` columns are band
   means standardized to the ROI5 composition of elevation, slope and 2000 land
@@ -39,8 +42,9 @@ Notes on the tables:
   apart inside each footprint polygon, mapped on 2025 imagery, to the nearest
   registered site.
 - In `footprint_check/footprint_group_medians_ci.csv`, intervals come from
-  4,000 resamples of cells within each group. Because neighboring cells are
-  not independent, they are narrower than for independent samples.
+  4,000 resamples of cells within each group. The resamples treat cells
+  individually, and because neighboring cells are not independent, the
+  intervals understate the uncertainty of the group medians.
 - In `multiple_testing_and_status/trend_classes_by_criterion.csv`, the 57
   cells with nonpositive corrected variance are unevaluable, and a cell with a
   significant test but a Sen slope of zero is counted with no significant
@@ -59,3 +63,29 @@ Notes on the tables:
   distance bin, from a common sample of 686,313 cell pairs within 40 km.
   Residuals are the pooled test-fold residuals of XGBoost under 10 km block
   validation.
+- In `multiple_testing_and_status/label_agreement_by_primary_class.csv`, each cell's
+  label under the primary specification is compared with its labels in all 12
+  combinations; `label_agreement_counts.csv` gives, for 0 to 12 combinations, the
+  number of cells that receive their primary label and the number classed as
+  stalled recovery or significant decline. Fig. S4 maps both.
+
+## Scripts
+
+The scripts in `analysis/revision2/` produced these tables. They read internal
+tables that carry cell identifiers, coordinates or registered site locations,
+which are not released, so they document the computations rather than run on
+the released files alone.
+
+| Folder | Scripts |
+|---|---|
+| `climate_context/` | `r2_climate_eci.py` |
+| `distance_from_sites/` | `r2_buffer_explore.py`, `r2_distance_gradient.py` |
+| `cumulative_neighborhoods/` | `r2_nested_radius.py`, `r2_nested_radius_status.py` |
+| `footprint_check/` | `r2_quick_checks.py`, `r2_lingbei_representativeness.py` |
+| `bright_bare_exposure/` | `r2_joint_status_mdi_k.py` |
+| `multiple_testing_and_status/` | `r2_quick_checks.py`, `r2_joint_status_mdi_k.py`, `r14_label_agreement_12.py` |
+| `attribution_stability/` | `r2_spatial_shap_checks.py` |
+| `urban_exclusion/` | `r2_sem_urban_exclusion.py`, `r2_sem_urban_exclusion_totals.py`, `r2_xgb_urban_exclusion.py`, `r2_xgb_urban_shares_exact.py` |
+| `spatial_dependence/` | `r2_spatial_shap_checks.py`, `r2_response_correlogram.py` |
+| `sensor_checks/` | `r2_quick_checks.py` |
+

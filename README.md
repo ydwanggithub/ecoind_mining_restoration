@@ -54,6 +54,7 @@ analysis/
   02_construct_eci_regain.py
   03_fit_xgboost_shap.py
   04_empirical_quantile_boundaries.py
+  revision2/           (scripts of the analyses added in the second revision)
 
 data/
   annual_spectral_sample.csv
@@ -78,6 +79,7 @@ data/
 
 figures/
   Fig01_study_area.png ... Fig14_footprint_check.png
+  supplementary/       (Figs. S1-S4 of the Supplementary Material)
 
 tests/
   verify_release.py
@@ -100,7 +102,9 @@ disclosing where they lie. `oof_predictions_deidentified.csv.gz` contains
 the observed response and the out-of-fold predictions of all four tree models
 under the three designs. `results/revision/` and `results/revision2/` hold the
 tables for the analyses added in the first and second revisions; each README
-lists the contents of its folders.
+lists the contents of its folders. The scripts that produced the second revision tables are in
+`analysis/revision2/`; they read internal tables with cell identifiers,
+coordinates or site locations, which are not released.
 
 `model_matrix_sample.csv.gz` contains 2,500 rows for a quicker trial run.
 `model_matrix_preview.csv` contains 50 of those rows in an uncompressed form
@@ -115,7 +119,8 @@ year, and kNDVI, NBR, NDMI and BSI are calculated from that composite. The
 template reads the Earth Engine project and analysis grid asset from
 environment variables supplied by the user. Figure rendering code
 is outside the scope of this release. The `figures` directory contains the
-figures of the revised manuscript.
+figures of the revised manuscript, and `figures/supplementary` those of its
+Supplementary Material.
 
 ## Quick start
 
